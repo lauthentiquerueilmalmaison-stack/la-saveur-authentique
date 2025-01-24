@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Forum, Arizonia } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const forum = Forum({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-forum",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const arizonia = Arizonia({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-arizonia",
 });
 
 export const metadata: Metadata = {
@@ -23,10 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${forum.variable} ${arizonia.variable}  bg-[#0d0c0b] overflow-x-hidden`}
       >
+        <Header />
         {children}
       </body>
     </html>
