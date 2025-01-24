@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr-FR">
       <body
         className={`${forum.variable} ${arizonia.variable}  bg-[#0d0c0b] overflow-x-hidden`}
       >

@@ -7,10 +7,13 @@ import photo2 from "../../public/photo-8.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Button from "./Button";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 function Hero() {
-  const phoneNumber = "+330764235804";
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const phoneNumber = "+33764232323";
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 3000 }),
+  ]);
 
   return (
     <section
@@ -57,7 +60,7 @@ function Hero() {
           <span className="lowercase  font-medium font-arizonia">& des</span>{" "}
           produits frais
         </h3>
-        <div className="flex space-x-4">
+        <div className="flex space-y-4 md:space-x-4 flex-col md:flex-row">
           <Button bg={true} href="#menu">
             Voir le menu
           </Button>
