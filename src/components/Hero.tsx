@@ -9,6 +9,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Button from "./Button";
 
 function Hero() {
+  const phoneNumber = "+330764235804";
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
@@ -39,8 +40,12 @@ function Hero() {
           produits frais
         </h3>
         <div className="flex space-x-4">
-          <Button bg={true}>Voir le menu</Button>
-          <Button>Appellez pour réserver</Button>
+          <Button bg={true} href="#menu">
+            Voir le menu
+          </Button>
+          <a href={`tel:${phoneNumber}`}>
+            <Button>appellez pour réserver</Button>
+          </a>
         </div>
       </div>
     </section>
