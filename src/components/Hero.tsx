@@ -20,13 +20,31 @@ function Hero() {
     >
       <div className="flex  w-full h-full">
         <div className="relative flex-none w-full h-full  bg-black opacity-25">
-          <Image src={photo} fill objectFit="cover" alt="photo" />
+          <Image
+            src={photo}
+            fill
+            style={{ objectFit: "cover" }}
+            alt="photo"
+            priority
+          />
         </div>
         <div className="relative flex-none w-full h-full bg-black opacity-25">
-          <Image src={photo1} fill objectFit="cover" alt="photo" />
+          <Image
+            src={photo1}
+            fill
+            style={{ objectFit: "cover" }}
+            alt="photo"
+            priority
+          />
         </div>
         <div className="relative flex-none w-full h-full bg-black opacity-25">
-          <Image src={photo2} fill objectFit="cover" alt="photo" />
+          <Image
+            src={photo2}
+            fill
+            style={{ objectFit: "cover" }}
+            alt="photo"
+            priority
+          />
         </div>
       </div>
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white font-forum">
