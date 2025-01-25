@@ -16,7 +16,7 @@ const Button = ({ children, bg = false, href }: ButtonProps) => {
       }}
       className={`uppercase font-forum font-semibold ${
         bg ? "bg-[#E4C590] text-black" : ""
-      } text-[#E4C590] border-[1px] px-[10px] py-[5px] min-w-48 border-[#E4C590] hover:bg-[#E4C590] hover:text-black transition-all duration-100 `}
+      } text-[#E4C590] border-[1px] px-[10px] py-[5px] min-w-48 h-fit border-[#E4C590] hover:bg-[#E4C590] hover:text-black transition-all duration-100 `}
     >
       {children}
     </button>
