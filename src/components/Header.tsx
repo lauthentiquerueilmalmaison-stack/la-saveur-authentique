@@ -65,7 +65,7 @@ const Header = () => {
           />
         </div>
       </div>
-      {/* <AnimatePresence>{isOpen && <SideBare />}</AnimatePresence> */}
+      <AnimatePresence>{isOpen && <SideBare />}</AnimatePresence>
     </header>
   );
 };
