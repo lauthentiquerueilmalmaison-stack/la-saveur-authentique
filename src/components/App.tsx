@@ -1,16 +1,19 @@
-"use client";
-import { useToggleMenuStore } from "@/store";
+import Contact from "./Contact";
+import Footer from "./Footer";
 import Hero from "./Hero";
 import Menu from "./Menu";
-import SideBare from "./SideBare";
-import { AnimatePresence } from "motion/react";
+import SocialMedia from "./SocialMedia";
+import Testimonials from "./Testimonials";
 
 const App = () => {
-  const isOpen = useToggleMenuStore((state) => state.isOpen);
   return (
-    <div className="overflow-hidden w-full">
+    <div className="w-full">
       <Hero />
       <Menu />
+      <Testimonials />
+      <SocialMedia />
+      <Contact />
+      <Footer />
     </div>
   );
 };

@@ -53,7 +53,7 @@ const Header = () => {
             })}
           </ul>
         </nav>
-        <div className="hidden lg:flex lg:justify-end lg:col-span-3 ">
+        <div className="hidden md:flex lg:justify-end lg:col-span-3 ">
           <a href={`tel:${phoneNumber}`}>
             <Button>appellez pour réserver</Button>
           </a>
