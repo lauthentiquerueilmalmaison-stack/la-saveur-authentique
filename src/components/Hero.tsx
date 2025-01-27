@@ -8,17 +8,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Button from "./Button";
 import { motion } from "motion/react";
+
 function Hero() {
-  const phoneNumber = "+33764232323";
+  const phoneNumber = "+33956739572";
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 3000 }),
   ]);
 
   return (
     <motion.section
-      id="accueil"
       className="h-screen w-screen relative overflow-x-hidden"
       ref={emblaRef}
+      id="accueil"
     >
       <div className="flex  w-full h-full">
         <div className="relative flex-none w-full h-full  bg-black opacity-25">

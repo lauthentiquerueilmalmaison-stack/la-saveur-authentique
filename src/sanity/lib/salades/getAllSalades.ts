@@ -3,10 +3,13 @@ import { sanityFetch } from "../live";
 
 export const getAllSalades = async () => {
   const ALL_SALADES_QUERY = defineQuery(`
-            *[
-                _type == "salade"
-            ] | order(name asc)
-        `);
+           *[_type == "salade"] {
+  nom,
+  prix,
+  ingredients[]->{
+    nom
+  }
+}`);
 
   try {
     const salades = await sanityFetch({ query: ALL_SALADES_QUERY });

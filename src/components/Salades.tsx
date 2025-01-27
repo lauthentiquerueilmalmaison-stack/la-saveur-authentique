@@ -1,6 +1,8 @@
+import { getAllIngredients } from "@/sanity/lib/ingredients/getAllIngredients";
 import salade from "../../public/salade.jpg";
 import { Salade } from "../../sanity.types";
 import Image from "next/image";
+import Ingredients from "./Ingredients";
 interface SaladeProps {
   salades: Salade[];
 }
@@ -15,10 +17,13 @@ const Salades = ({ salades }: SaladeProps) => {
           return (
             <div
               key={salade._id}
-              className="flex flex-nowrap items-center justify-between text-[20px] lg:text-[30px] py-2 lg:py-3 border-b-[1px] "
+              className="flex flex-col py-2 border-b-[1px] "
             >
-              <span className="inline-block">{salade.nom}</span>
-              <span className="inline-block">{salade.prix}&euro;</span>
+              <div className="flex flex-nowrap items-center justify-between text-[20px] lg:text-[30px]">
+                <span className="inline-block">{salade.nom}</span>
+                <span className="inline-block">{salade.prix} &euro;</span>
+              </div>
+              <Ingredients ingredients={salade.ingredients ?? []} />
             </div>
           );
         })}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Forum, Arizonia } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-
+import { ReactLenis } from "../utils/lenis";
 const forum = Forum({
   weight: "400",
   subsets: ["latin"],
@@ -26,12 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr-FR">
-      <body
-        className={`${forum.variable} ${arizonia.variable}  bg-[#0d0c0b] overflow-x-hidden`}
-      >
-        <Header />
-        {children}
-      </body>
+      <ReactLenis root options={{ lerp: 0.1, anchors: true }}>
+        <body
+          className={`${forum.variable} ${arizonia.variable}  bg-[#0d0c0b] overflow-x-hidden`}
+        >
+          <Header />
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }

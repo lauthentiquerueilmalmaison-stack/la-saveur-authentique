@@ -1,15 +1,15 @@
 import { defineField, defineType } from "sanity";
-
 export const ingredientType = defineType({
   name: "ingredient",
   title: "Ingrédients",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "nom",
       title: "Nom",
       type: "string",
       validation: (Rule) => Rule.required(),
+
     }),
   ],
   preview: {

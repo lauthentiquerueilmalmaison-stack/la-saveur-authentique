@@ -11,6 +11,7 @@ import NavLink from "./NavLink";
 import { useToggleMenuStore } from "@/store";
 import { AnimatePresence } from "motion/react";
 import SideBare from "./SideBare";
+import Link from "next/link";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -18,11 +19,11 @@ const links = [
   { id: "#avis", title: "avis" },
   { id: "#nous-suivre", title: "nous suivre" },
   { id: "#contact", title: "contact" },
-  { id: "privatisation", title: "privatisation" },
+  { id: "#privatisation", title: "privatisation" },
 ];
 
 const Header = () => {
-  const phoneNumber = "+330764235804";
+  const phoneNumber = "+33956739572";
   const lenis = useLenis();
   const toggleMenu = useToggleMenuStore((state) => state.toggleMenu);
   const isOpen = useToggleMenuStore((state) => state.isOpen);
@@ -31,20 +32,17 @@ const Header = () => {
     <header className="h-[7vh] w-full fixed top-0 z-40 ">
       <div className="flex items-center h-full px-5 py-2 justify-between lg:grid lg:grid-cols-12">
         <div className="lg:col-span-3 ">
-          <div
-            className="flex space-x-2 items-center cursor-pointer w-fit"
-            onClick={() => {
-              lenis?.scrollTo("#accueil");
-            }}
-          >
-            <div className="w-40 md:w-48">
-              <Image src={logo} priority alt="la saveur authentique" />
+          <Link href="/">
+            <div className="flex space-x-2 items-center cursor-pointer w-fit">
+              <div className="w-40 md:w-48">
+                <Image src={logo} priority alt="la saveur authentique" />
+              </div>
+              <div className="flex items-center space-x-1">
+                <Image src={spoon} alt="spoon" width={8} height={10} />
+                <Image src={fork} alt="fork" width={8} height={10} />
+              </div>
             </div>
-            <div className="flex items-center space-x-1">
-              <Image src={spoon} alt="spoon" width={8} height={10} />
-              <Image src={fork} alt="fork" width={8} height={10} />
-            </div>
-          </div>
+          </Link>
         </div>
         <nav className="hidden lg:col-span-6 lg:block 2xl:col-span-5 2xl:col-start-5">
           <ul className="flex items-center justify-around font-forum text-white uppercase font-semibold tracking-wider">
@@ -53,7 +51,7 @@ const Header = () => {
             })}
           </ul>
         </nav>
-        <div className="hidden md:flex lg:justify-end lg:col-span-3 ">
+        <div className="hidden lg:flex lg:justify-end lg:col-span-3 ">
           <a href={`tel:${phoneNumber}`}>
             <Button>appellez pour réserver</Button>
           </a>

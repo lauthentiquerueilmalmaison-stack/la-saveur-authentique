@@ -2,6 +2,7 @@ import { useToggleMenuStore } from "@/store";
 import { motion } from "motion/react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useLenis } from "lenis/react";
+import Link from "next/link";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -47,15 +48,9 @@ const SideBare = () => {
         <ul className="flex flex-col items-start text-[30px] font-forum text-white uppercase font-semibold tracking-wider">
           {links.map(({ id, title }) => {
             return (
-              <span
-                key={id}
-                className=""
-                onClick={() => {
-                  lenis?.scrollTo(id);
-                }}
-              >
+              <Link href={id} key={id}>
                 {title}
-              </span>
+              </Link>
             );
           })}
         </ul>
