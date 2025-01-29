@@ -21,7 +21,7 @@ function Hero() {
       ref={emblaRef}
       id="accueil"
     >
-      <div className="flex  w-full h-full">
+      <div className="flex   w-full h-full">
         <div className="relative flex-none w-full h-full  bg-black opacity-25">
           <Image
             src={photo}
