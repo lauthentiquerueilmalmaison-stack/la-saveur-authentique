@@ -10,10 +10,10 @@ const App = () => {
   return (
     <div className="w-full">
       <Hero />
-      {/* <Menu /> */}
+      <Menu />
       <Testimonials />
       <SocialMedia />
-      <Contact />
+      {/* <Contact /> */}
       <Privatisation />
       <Footer />
     </div>
