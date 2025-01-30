@@ -1,9 +1,18 @@
 "use client";
-import { useToggleMenuStore, useStore } from "@/store";
+
+import { useStore, useToggleMenuStore } from "@/store";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  ClockIcon,
+} from "@heroicons/react/24/outline";
+
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -17,79 +26,133 @@ const links = [
 const SideBare = () => {
   const toggleMenu = useToggleMenuStore((state) => state.toggleMenu);
   const isOpen = useToggleMenuStore((state) => state.isOpen);
-  const { activeTab } = useStore(); // Récupérer l'onglet actif du store
-  const sidebarRef = useRef<HTMLDivElement>(null); // Référence pour le conteneur du menu
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]); // Références pour les liens
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
+  const { activeTab } = useStore(); // Récupérer l'onglet actif du store
+
+  // Animation d'ouverture et de fermeture
   useEffect(() => {
     const sidebar = sidebarRef.current;
 
     if (sidebar) {
       if (isOpen) {
-        // Animation d'ouverture
         gsap.fromTo(
           sidebar,
-          { x: "100%" }, // Départ : hors de l'écran à droite
+          { x: "100%" },
           {
-            x: "0%", // Arrivée : position normale
+            x: "0%",
             duration: 0.5,
             ease: "power3.out",
           }
         );
       } else {
-        // Animation de fermeture
         gsap.to(sidebar, {
-          x: "100%", // Déplacement hors de l'écran à droite
+          x: "100%",
           duration: 0.5,
-          ease: "power3.out",
+          ease: "power3.in",
         });
       }
     }
   }, [isOpen]);
 
-  // Animation de la couleur des liens en fonction de l'onglet actif
-  useEffect(() => {
-    links.forEach((link, index) => {
-      const element = linkRefs.current[index];
-      if (element) {
-        if (link.id === activeTab) {
-          gsap.to(element, { color: "#E4C590", duration: 0.5 }); // Couleur pour l'onglet actif
-        } else {
-          gsap.to(element, { color: "#ffffff", duration: 0.5 }); // Couleur pour les autres onglets
-        }
-      }
-    });
-  }, [activeTab]);
-
   return (
     <div
       ref={sidebarRef}
-      className="overflow-hidden h-screen w-screen absolute top-0 p-5 bg-black z-50"
-      style={{ transform: "translateX(100%)" }} // Position initiale hors de l'écran
+      className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#1E3A8A] text-white p-6 overflow-y-auto z-50"
+      style={{ transform: "translateX(100%)" }}
     >
+      {/* Bouton de fermeture */}
       <div className="flex justify-end">
         <XMarkIcon
           className="text-white size-7 cursor-pointer"
           onClick={toggleMenu}
         />
       </div>
-      <nav className="w-full">
-        <ul className="flex flex-col items-start text-[30px] font-forum text-white uppercase font-semibold tracking-wider">
-          {links.map(({ id, title }, index) => (
-            <li key={id} onClick={toggleMenu}>
-              <Link
-                href={id}
-                ref={(el) => {
-                  // Assign the ref without returning a value
-                  linkRefs.current[index] = el;
-                }}
+
+      {/* Liens de navigation */}
+      <nav className="mt-8">
+        <ul className="space-y-4">
+          {links.map(({ id, title }) => {
+            const isActive = activeTab === id;
+            return (
+              <li
+                key={id}
+                onClick={toggleMenu}
+                className={isActive ? "text-[#E4C590] underline" : ""}
               >
-                {title}
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={id}
+                  className="font-forum text-2xl uppercase hover:text-[#E4C590] transition-colors"
+                >
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
+
+      {/* Informations du restaurant */}
+      <div className="mt-8">
+        <h3 className="font-arizona text-xl mb-4">Informations</h3>
+        <ul className="space-y-2">
+          <li className="flex items-center space-x-2 font-forum text-gray-300">
+            <MapPinIcon className="w-5 h-5" />
+            <span>41 Bd National, 92500 Rueil-Malmaison</span>
+          </li>
+          <li className="flex items-center space-x-2 font-forum text-gray-300">
+            <PhoneIcon className="w-5 h-5" />
+            <span>+33 1 23 45 67 89</span>
+          </li>
+          <li className="flex items-center space-x-2 font-forum text-gray-300">
+            <EnvelopeIcon className="w-5 h-5" />
+            <span>contact@restaurant.com</span>
+          </li>
+          <li className="flex items-center space-x-2 font-forum text-gray-300">
+            <ClockIcon className="w-5 h-5" />
+            <span>Lun - Dim : 12h - 22h</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Réseaux sociaux */}
+      <div className="mt-8">
+        <h3 className="font-arizona text-xl mb-4">Suivez-nous</h3>
+        <div className="flex space-x-4">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#E4C590] transition-colors"
+          >
+            <FaFacebook className="w-6 h-6" />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#E4C590] transition-colors"
+          >
+            <FaInstagram className="w-6 h-6" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#E4C590] transition-colors"
+          >
+            <FaTwitter className="w-6 h-6" />
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#E4C590] transition-colors"
+          >
+            <FaYoutube className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

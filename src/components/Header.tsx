@@ -11,7 +11,7 @@ import { useStore, useToggleMenuStore } from "@/store";
 import SideBare from "./SideBare";
 import Link from "next/link";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -29,7 +29,17 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null); // Typage de la référence
   const { isScrolled, setIsScrolled, activeTab, setActiveTab } = useStore();
 
+  // Vérifier si on est côté client
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    // Définir que nous sommes en mode client
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return; // Ne s'exécute que côté client
+
     const header = headerRef.current;
 
     const handleScroll = () => {
@@ -73,7 +83,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isScrolled, setIsScrolled, setActiveTab]);
+  }, [isClient, isScrolled, setIsScrolled, setActiveTab]);
 
   return (
     <header className="h-[10vh] w-full fixed top-0 z-40 py-3" ref={headerRef}>

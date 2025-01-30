@@ -16,15 +16,29 @@ async function MenuCard() {
   const desserts = await getAllDesserts();
   const salades = await getAllSalades();
   const options = await getAllOptions();
+
   return (
     <Tabs defaultValue="formules">
-      <TabsList className="w-full bg-transparent border-t-[1px] border-b-[1px] border-[#E4C590] text-white ">
-        <TabsTrigger value="formules">Nos formules</TabsTrigger>
-        <TabsTrigger value="entrees">Entrées</TabsTrigger>
-        <TabsTrigger value="plats">Plats</TabsTrigger>
-        <TabsTrigger value="desserts">Desserts</TabsTrigger>
-        <TabsTrigger value="salades">Salades</TabsTrigger>
+      {/* Liste des onglets */}
+      <TabsList className="w-full bg-transparent border-t-[1px] border-b-[1px] border-[#E4C590] text-white overflow-x-auto whitespace-nowrap">
+        <TabsTrigger value="formules" className="px-4 py-2">
+          Nos formules
+        </TabsTrigger>
+        <TabsTrigger value="entrees" className="px-4 py-2">
+          Entrées
+        </TabsTrigger>
+        <TabsTrigger value="plats" className="px-4 py-2">
+          Plats
+        </TabsTrigger>
+        <TabsTrigger value="desserts" className="px-4 py-2">
+          Desserts
+        </TabsTrigger>
+        <TabsTrigger value="salades" className="px-4 py-2">
+          Salades
+        </TabsTrigger>
       </TabsList>
+
+      {/* Contenu des onglets */}
       <TabsContent value="entrees">
         <Starter starters={starters} />
       </TabsContent>
