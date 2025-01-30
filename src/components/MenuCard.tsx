@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Salades from "./Salades";
 import Desserts from "./Desserts";
 import Dish from "./Dish";
@@ -17,23 +20,90 @@ async function MenuCard() {
   const salades = await getAllSalades();
   const options = await getAllOptions();
 
+  // Références pour les onglets et le conteneur
+  const tabsListRef = useRef<HTMLDivElement>(null);
+  const formulesRef = useRef<HTMLButtonElement>(null);
+  const entreesRef = useRef<HTMLButtonElement>(null);
+  const platsRef = useRef<HTMLButtonElement>(null);
+  const dessertsRef = useRef<HTMLButtonElement>(null);
+  const saladesRef = useRef<HTMLButtonElement>(null);
+
+  // Fonction pour ajuster la position du conteneur
+  const scrollToActiveTab = (value: string) => {
+    let activeTab: HTMLButtonElement | null = null;
+
+    switch (value) {
+      case "formules":
+        activeTab = formulesRef.current;
+        break;
+      case "entrees":
+        activeTab = entreesRef.current;
+        break;
+      case "plats":
+        activeTab = platsRef.current;
+        break;
+      case "desserts":
+        activeTab = dessertsRef.current;
+        break;
+      case "salades":
+        activeTab = saladesRef.current;
+        break;
+      default:
+        break;
+    }
+
+    if (activeTab && tabsListRef.current) {
+      activeTab.scrollIntoView({
+        behavior: "smooth", // Défilement fluide
+        block: "nearest", // Alignement horizontal
+        inline: "start", // Positionner à gauche
+      });
+    }
+  };
+
   return (
-    <Tabs defaultValue="formules">
+    <Tabs
+      defaultValue="formules"
+      onValueChange={(value) => scrollToActiveTab(value)}
+    >
       {/* Liste des onglets */}
-      <TabsList className="w-full bg-transparent border-t-[1px] border-b-[1px] border-[#E4C590] text-white overflow-x-auto whitespace-nowrap">
-        <TabsTrigger value="formules" className="px-4 py-2">
+      <TabsList
+        ref={tabsListRef}
+        className="w-full bg-transparent border-t-[1px] border-b-[1px] border-[#E4C590] text-white overflow-x-auto whitespace-nowrap"
+      >
+        <TabsTrigger
+          value="formules"
+          ref={formulesRef}
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+        >
           Nos formules
         </TabsTrigger>
-        <TabsTrigger value="entrees" className="px-4 py-2">
+        <TabsTrigger
+          value="entrees"
+          ref={entreesRef}
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+        >
           Entrées
         </TabsTrigger>
-        <TabsTrigger value="plats" className="px-4 py-2">
+        <TabsTrigger
+          value="plats"
+          ref={platsRef}
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+        >
           Plats
         </TabsTrigger>
-        <TabsTrigger value="desserts" className="px-4 py-2">
+        <TabsTrigger
+          value="desserts"
+          ref={dessertsRef}
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+        >
           Desserts
         </TabsTrigger>
-        <TabsTrigger value="salades" className="px-4 py-2">
+        <TabsTrigger
+          value="salades"
+          ref={saladesRef}
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+        >
           Salades
         </TabsTrigger>
       </TabsList>

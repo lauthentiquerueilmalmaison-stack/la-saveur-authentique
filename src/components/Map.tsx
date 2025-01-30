@@ -1,44 +1,36 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useState } from "react";
+import L from "leaflet"; // Import de Leaflet
+import "leaflet/dist/leaflet.css"; // Import du style de Leaflet
 
 const Map = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (mapRef.current) {
-      // Initialiser la carte
-      const map = L.map(mapRef.current).setView([48.8768, 2.1897], 15); // Coordonnées de Rueil-Malmaison
+    setIsClient(true); // Assurez-vous que le code fonctionne côté client
 
-      // Ajouter une couche de tuiles (par exemple, OpenStreetMap)
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
-
-      // Ajouter un marqueur rouge à l'adresse spécifiée
-      const redIcon = L.icon({
-        iconUrl:
-          "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-      });
-
-      L.marker([48.8768, 2.1897], { icon: redIcon })
-        .addTo(map)
-        .bindPopup("41 Bd National, 92500 Rueil-Malmaison")
-        .openPopup();
+    if (mapContainerRef.current && typeof window !== "undefined") {
+      // Initialisation de la carte uniquement côté client
+      const map = L.map(mapContainerRef.current).setView([51.505, -0.09], 13); // Exemple de coordonnées
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
+        map
+      );
     }
+
+    // Cleanup de la carte si nécessaire
+    return () => {
+      if (mapContainerRef.current && typeof window !== "undefined") {
+        mapContainerRef.current.innerHTML = ""; // Nettoyer la carte lors du démontage
+      }
+    };
   }, []);
 
+  if (!isClient) {
+    return <div>Loading...</div>; // Message de chargement si on est toujours sur le serveur
+  }
+
   return (
-    <div
-      ref={mapRef}
-      className="h-[500px] w-full z-10 rounded-lg overflow-hidden"
-    />
+    <div ref={mapContainerRef} style={{ height: "500px", width: "100%" }}></div>
   );
 };
 

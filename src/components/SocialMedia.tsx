@@ -1,13 +1,11 @@
 import React from "react";
+import Section from "./Section";
 
 const SocialMedia = () => {
   return (
-    <section
-      id="nous-suivre"
-      className="w-screen h-screen  text-white flex justify-center items-center font-forum text-[50px]"
-    >
+    <Section id="nous-suivre" title="Nous suivre">
       Nous suivre
-    </section>
+    </Section>
   );
 };
 

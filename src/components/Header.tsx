@@ -29,16 +29,16 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null); // Typage de la référence
   const { isScrolled, setIsScrolled, activeTab, setActiveTab } = useStore();
 
-  // Vérifier si on est côté client
+  // Vérification côté client
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Définir que nous sommes en mode client
+    // Vérifier que le code s'exécute côté client
     setIsClient(true);
   }, []);
 
   useEffect(() => {
-    if (!isClient) return; // Ne s'exécute que côté client
+    if (!isClient || typeof window === "undefined") return; // Ne s'exécute que côté client
 
     const header = headerRef.current;
 
@@ -77,11 +77,15 @@ const Header = () => {
     };
 
     // Ajouter un écouteur d'événement pour le scroll
-    window.addEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
 
     // Nettoyer l'écouteur d'événement lors du démontage du composant
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
   }, [isClient, isScrolled, setIsScrolled, setActiveTab]);
 

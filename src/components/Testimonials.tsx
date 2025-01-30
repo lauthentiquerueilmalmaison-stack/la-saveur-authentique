@@ -1,13 +1,11 @@
 import React from "react";
+import Section from "./Section";
 
 const Testimonials = () => {
   return (
-    <section
-      id="avis"
-      className="w-screen h-screen  text-white flex justify-center items-center font-forum text-[50px]"
-    >
+    <Section id="avis" title="Les avis">
       Testimonials
-    </section>
+    </Section>
   );
 };
 
