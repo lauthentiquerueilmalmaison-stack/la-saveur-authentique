@@ -58,7 +58,7 @@ const SideBare = () => {
   return (
     <div
       ref={sidebarRef}
-      className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#1E3A8A] text-white p-6 overflow-y-auto z-50"
+      className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#262524] text-white p-6 overflow-y-auto z-50"
       style={{ transform: "translateX(100%)" }}
     >
       {/* Bouton de fermeture */}
@@ -93,7 +93,7 @@ const SideBare = () => {
       </nav>
 
       {/* Informations du restaurant */}
-      <div className="mt-8">
+      <div className="mt-12 ">
         <h3 className="font-arizona text-xl mb-4">Informations</h3>
         <ul className="space-y-2">
           <li className="flex items-center space-x-2 font-forum text-gray-300">

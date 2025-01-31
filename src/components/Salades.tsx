@@ -18,7 +18,7 @@ const Salades = ({ salades }: SaladeProps) => {
               key={salade._id}
               className="flex flex-col py-2 border-b-[1px] border-[#333333]"
             >
-              <div className="flex flex-nowrap items-center justify-between text-[20px] lg:text-[30px]">
+              <div className="flex flex-nowrap items-center justify-between text-[18px] lg:text-[25px]">
                 <span className="inline-block">{salade.nom}</span>
                 <span className="inline-block">{salade.prix} &euro;</span>
               </div>

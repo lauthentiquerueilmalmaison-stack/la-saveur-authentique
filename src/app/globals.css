@@ -73,3 +73,35 @@
   -ms-overflow-style: none; /* IE et Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Styles pour les champs de formulaire avec autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.1) inset !important; /* Fond semi-transparent */
+  -webkit-text-fill-color: white !important; /* Couleur du texte */
+  transition: background-color 5000s ease-in-out 0s; /* Désactiver l'animation de fond */
+}
+
+/* Styles pour le select */
+select {
+  background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+  color: white; /* Couleur du texte */
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  appearance: none; /* Supprimer l'apparence par défaut */
+}
+
+/* Styles pour les options du select */
+select option {
+  background-color: #525251; /* Fond des options */
+  color: white; /* Couleur du texte des options */
+}
+
+/* Styles pour le select au focus */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #e4c590; /* Bordure dorée au focus */
+}

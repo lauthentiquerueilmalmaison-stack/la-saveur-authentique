@@ -26,7 +26,7 @@ const Category = ({ image, category, children }: CategoryProps) => {
           return (
             <div
               key={cat._id}
-              className="flex flex-nowrap items-center justify-between text-[20px] lg:text-[30px] py-3 border-b-[1px] "
+              className="flex flex-nowrap items-center justify-between text-[18px] lg:text-[25px] py-3 border-b-[1px] border-[#333333]"
             >
               <span className="inline-block">{cat.nom}</span>
               <span className="inline-block">{cat.prix}&euro;</span>

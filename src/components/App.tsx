@@ -8,7 +8,7 @@ import Testimonials from "./Testimonials";
 
 const App = () => {
   return (
-    <div className="w-full">
+    <>
       <Hero />
       <Menu />
       <Testimonials />
@@ -16,7 +16,7 @@ const App = () => {
       {/* <Contact /> */}
       <Privatisation />
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ import fork from "../../public/fork.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1E3A8A] text-white py-12 px-6 lg:px-12">
+    <footer className="bg-[#262524] text-white py-12 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Conteneur principal */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">

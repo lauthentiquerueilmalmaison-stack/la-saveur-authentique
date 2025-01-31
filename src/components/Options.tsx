@@ -9,7 +9,7 @@ interface OptionsProps {
 const Options = ({ options }: OptionsProps) => {
   return (
     <Category category={options} image={salade}>
-      <h2 className="text-[20px] lg:text-[30px] font-semibold">
+      <h2 className="text-[18px] lg:text-[25px] font-semibold">
         Formule midi (du Lundi au Vendredi) hors jours fériérs
       </h2>
     </Category>

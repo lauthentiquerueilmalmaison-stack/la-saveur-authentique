@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Salades from "./Salades";
 import Desserts from "./Desserts";
 import Dish from "./Dish";
 import Starter from "./Starter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-
 import Options from "./Options";
 import { Dessert, Entree, Formule, Plat, Salade } from "../../sanity.types";
 
@@ -18,14 +17,13 @@ interface MenuCardProps {
   options: Formule[];
 }
 
-async function MenuCard({
-  starters,
+function MenuCard({
   dishs,
+  starters,
   desserts,
   salades,
   options,
 }: MenuCardProps) {
-  // Références pour les onglets et le conteneur
   const tabsListRef = useRef<HTMLDivElement>(null);
   const formulesRef = useRef<HTMLButtonElement>(null);
   const entreesRef = useRef<HTMLButtonElement>(null);
@@ -33,7 +31,6 @@ async function MenuCard({
   const dessertsRef = useRef<HTMLButtonElement>(null);
   const saladesRef = useRef<HTMLButtonElement>(null);
 
-  // Fonction pour ajuster la position du conteneur
   const scrollToActiveTab = (value: string) => {
     let activeTab: HTMLButtonElement | null = null;
 
@@ -58,62 +55,70 @@ async function MenuCard({
     }
 
     if (activeTab && tabsListRef.current) {
-      activeTab.scrollIntoView({
-        behavior: "smooth", // Défilement fluide
-        block: "nearest", // Alignement horizontal
-        inline: "start", // Positionner à gauche
+      const container = tabsListRef.current;
+      const tabRect = activeTab.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+
+      const scrollLeft =
+        tabRect.left - containerRect.left + container.scrollLeft;
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
       });
     }
   };
+
+  // Déclencher le défilement automatique lorsque le composant est monté
+  useEffect(() => {
+    scrollToActiveTab("formules");
+  }, []);
 
   return (
     <Tabs
       defaultValue="formules"
       onValueChange={(value) => scrollToActiveTab(value)}
     >
-      {/* Liste des onglets */}
       <TabsList
         ref={tabsListRef}
-        className="w-full bg-transparent border-t-[1px] border-b-[1px] border-[#E4C590] text-white overflow-x-auto whitespace-nowrap"
+        className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40  whitespace-nowrap"
       >
         <TabsTrigger
           value="formules"
           ref={formulesRef}
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
         >
           Nos formules
         </TabsTrigger>
         <TabsTrigger
           value="entrees"
           ref={entreesRef}
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
         >
           Entrées
         </TabsTrigger>
         <TabsTrigger
           value="plats"
           ref={platsRef}
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
         >
           Plats
         </TabsTrigger>
         <TabsTrigger
           value="desserts"
           ref={dessertsRef}
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
         >
           Desserts
         </TabsTrigger>
         <TabsTrigger
           value="salades"
           ref={saladesRef}
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A]"
+          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
         >
           Salades
         </TabsTrigger>
       </TabsList>
 
-      {/* Contenu des onglets */}
       <TabsContent value="entrees">
         <Starter starters={starters} />
       </TabsContent>

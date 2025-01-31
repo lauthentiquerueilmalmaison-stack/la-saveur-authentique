@@ -6,9 +6,9 @@ interface IngredientsProps {
 }
 const Ingredients = ({ ingredients }: IngredientsProps) => {
   return (
-    <div className="flex space-x-1 text-sm text-gray-300 italic lowercase ">
+    <div className="text-sm text-gray-300 italic lowercase ">
       {ingredients.map((ingredient, index) => (
-        <span key={ingredient._id}>
+        <span key={ingredient._id} className="mr-1">
           {ingredient.nom?.trim()}
           {index < ingredients.length - 1 && ","}
         </span>
