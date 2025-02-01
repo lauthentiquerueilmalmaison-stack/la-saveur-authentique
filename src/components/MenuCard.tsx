@@ -80,7 +80,7 @@ function MenuCard({
     >
       <TabsList
         ref={tabsListRef}
-        className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40  whitespace-nowrap"
+        className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40 md:pl-0  whitespace-nowrap"
       >
         <TabsTrigger
           value="formules"
