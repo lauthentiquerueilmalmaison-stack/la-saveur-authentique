@@ -28,9 +28,11 @@
     "embla-carousel-react": "^8.5.2",
     "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
+    "leaflet-color-markers": "^0.1.0",
     "lenis": "^1.1.20",
     "locomotive-scroll": "^5.0.0-beta.21",
     "lucide-react": "^0.474.0",
+    "mapbox-gl": "^3.9.4",
     "motion": "^12.0.5",
     "next": "15.1.5",
     "next-sanity": "^9.8.42",
@@ -40,6 +42,7 @@
     "react-hook-form": "^7.54.2",
     "react-hot-toast": "^2.5.1",
     "react-icons": "^5.4.0",
+    "react-leaflet": "^5.0.0",
     "react-spinners": "^0.15.0",
     "sanity": "^3.71.2",
     "styled-components": "^6.1.14",
@@ -50,6 +53,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
