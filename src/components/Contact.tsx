@@ -1,6 +1,8 @@
 "use client";
+
 import dynamic from "next/dynamic";
 import Section from "./Section";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa"; // Importation des icônes
 
 // Importation dynamique du composant de carte avec désactivation du SSR
 const Map = dynamic(() => import("./Map"), {
@@ -19,30 +21,53 @@ const Contact = () => {
 
           {/* Informations de contact */}
           <div className="flex flex-col justify-center space-y-6">
+            {/* Adresse */}
             <div className="space-y-2">
-              <h3 className="font-arizona text-2xl text-[#E4C590]">Adresse</h3>
-              <p className="font-forum text-lg text-white">
+              <div className="flex items-center space-x-4">
+                <FaMapMarkerAlt className="text-2xl text-[#E4C590]" />{" "}
+                {/* Icône */}
+                <h3 className="font-arizona text-2xl text-[#E4C590]">
+                  Adresse
+                </h3>
+              </div>
+              <p className="font-forum text-lg text-white pl-10">
                 41 Boulevard National, 92500 Rueil-Malmaison
               </p>
             </div>
 
+            {/* Téléphone */}
             <div className="space-y-2">
-              <h3 className="font-arizona text-2xl text-[#E4C590]">
-                Téléphone
-              </h3>
-              <p className="font-forum text-lg text-white">+33 1 23 45 67 89</p>
+              <div className="flex items-center space-x-4">
+                <FaPhone className="text-2xl text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizona text-2xl text-[#E4C590]">
+                  Téléphone
+                </h3>
+              </div>
+              <p className="font-forum text-lg text-white pl-10">
+                +33 1 23 45 67 89
+              </p>
             </div>
 
+            {/* Email */}
             <div className="space-y-2">
-              <h3 className="font-arizona text-2xl text-[#E4C590]">Email</h3>
-              <p className="font-forum text-lg text-white">
+              <div className="flex items-center space-x-4">
+                <FaEnvelope className="text-2xl text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizona text-2xl text-[#E4C590]">Email</h3>
+              </div>
+              <p className="font-forum text-lg text-white pl-10">
                 contact@restaurant.com
               </p>
             </div>
 
+            {/* Horaires */}
             <div className="space-y-2">
-              <h3 className="font-arizona text-2xl text-[#E4C590]">Horaires</h3>
-              <p className="font-forum text-lg text-white">
+              <div className="flex items-center space-x-4">
+                <FaClock className="text-2xl text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizona text-2xl text-[#E4C590]">
+                  Horaires
+                </h3>
+              </div>
+              <p className="font-forum text-lg text-white pl-10">
                 Lun - Dim : 12h - 22h
               </p>
             </div>
