@@ -22,13 +22,10 @@ const Contact = () => {
           {/* Informations de contact */}
           <div className="flex flex-col justify-center space-y-6">
             {/* Adresse */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[18px] md:text-[25px]">
               <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt className="text-2xl text-[#E4C590]" />{" "}
-                {/* Icône */}
-                <h3 className="font-arizona text-2xl text-[#E4C590]">
-                  Adresse
-                </h3>
+                <FaMapMarkerAlt className=" text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizonia  text-[#E4C590]">Adresse</h3>
               </div>
               <p className="font-forum text-lg text-white pl-10">
                 41 Boulevard National, 92500 Rueil-Malmaison
@@ -36,12 +33,10 @@ const Contact = () => {
             </div>
 
             {/* Téléphone */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[18px] md:text-[25px]">
               <div className="flex items-center space-x-4">
-                <FaPhone className="text-2xl text-[#E4C590]" /> {/* Icône */}
-                <h3 className="font-arizona text-2xl text-[#E4C590]">
-                  Téléphone
-                </h3>
+                <FaPhone className=" text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizonia  text-[#E4C590]">Téléphone</h3>
               </div>
               <p className="font-forum text-lg text-white pl-10">
                 +33 1 23 45 67 89
@@ -49,10 +44,10 @@ const Contact = () => {
             </div>
 
             {/* Email */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[18px] md:text-[25px]">
               <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-2xl text-[#E4C590]" /> {/* Icône */}
-                <h3 className="font-arizona text-2xl text-[#E4C590]">Email</h3>
+                <FaEnvelope className=" text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizonia  text-[#E4C590]">Email</h3>
               </div>
               <p className="font-forum text-lg text-white pl-10">
                 contact@restaurant.com
@@ -60,12 +55,10 @@ const Contact = () => {
             </div>
 
             {/* Horaires */}
-            <div className="space-y-2">
+            <div className="space-y-2 text-[18px] md:text-[25px]">
               <div className="flex items-center space-x-4">
-                <FaClock className="text-2xl text-[#E4C590]" /> {/* Icône */}
-                <h3 className="font-arizona text-2xl text-[#E4C590]">
-                  Horaires
-                </h3>
+                <FaClock className=" text-[#E4C590]" /> {/* Icône */}
+                <h3 className="font-arizonia  text-[#E4C590]">Horaires</h3>
               </div>
               <p className="font-forum text-lg text-white pl-10">
                 Lun - Dim : 12h - 22h
