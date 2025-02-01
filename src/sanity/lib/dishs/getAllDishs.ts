@@ -10,6 +10,7 @@ export const getAllDishs = async () => {
 
   try {
     const dishes = await sanityFetch({ query: ALL_DISHES_QUERY });
+    console.log("Fetched dishes:", dishes); // Ajoutez ce log
     return dishes.data || [];
   } catch (error) {
     console.error("Error fetching all dishes", error);
