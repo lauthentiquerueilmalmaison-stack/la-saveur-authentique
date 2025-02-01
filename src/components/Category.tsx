@@ -8,7 +8,7 @@ interface CategoryProps {
   category: Plat[] | Entree[] | Dessert[] | Salade[] | Formule[];
 }
 
-const Category = ({ image, category, children }: CategoryProps) => {
+const Category = ({ image, category, children }: CategoryProps) => {  
   return (
     <section className="w-full h-full flex py-5 lg:space-x-10">
       <div className="hidden lg:flex lg:w-[30vw] lg:h-[70vh] relative rounded-lg overflow-x-hidden ">
