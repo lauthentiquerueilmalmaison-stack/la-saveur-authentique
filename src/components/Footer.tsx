@@ -78,9 +78,9 @@ const Footer = () => {
               <li className="font-forum text-gray-300">
                 41 Bd National, 92500 Rueil-Malmaison
               </li>
-              <li className="font-forum text-gray-300">+33 1 23 45 67 89</li>
+              <li className="font-forum text-gray-300">0956739572</li>
               <li className="font-forum text-gray-300">
-                contact@restaurant.com
+                lauthentiquegestion@gmail.com
               </li>
               <li className="font-forum text-gray-300">
                 Lun - Dim : 12h - 22h

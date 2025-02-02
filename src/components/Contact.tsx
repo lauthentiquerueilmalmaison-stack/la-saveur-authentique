@@ -38,9 +38,7 @@ const Contact = () => {
                 <FaPhone className=" text-[#E4C590]" /> {/* Icône */}
                 <h3 className="font-arizonia  text-[#E4C590]">Téléphone</h3>
               </div>
-              <p className="font-forum text-lg text-white pl-10">
-                +33 1 23 45 67 89
-              </p>
+              <p className="font-forum text-lg text-white pl-10">0956739572</p>
             </div>
 
             {/* Email */}
@@ -50,7 +48,7 @@ const Contact = () => {
                 <h3 className="font-arizonia  text-[#E4C590]">Email</h3>
               </div>
               <p className="font-forum text-lg text-white pl-10">
-                contact@restaurant.com
+                lauthentiquegestion@gmail.com
               </p>
             </div>
 

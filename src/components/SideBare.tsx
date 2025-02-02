@@ -102,11 +102,11 @@ const SideBare = () => {
           </li>
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <PhoneIcon className="w-5 h-5" />
-            <span>+33 1 23 45 67 89</span>
+            <span>0956739572</span>
           </li>
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <EnvelopeIcon className="w-5 h-5" />
-            <span>contact@restaurant.com</span>
+            <span>lauthentiquegestion@gmail.com</span>
           </li>
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <ClockIcon className="w-5 h-5" />
