@@ -6,25 +6,6 @@ import { getAllDesserts } from "@/sanity/lib/desserts/getAllDesserts";
 import { getAllSalades } from "@/sanity/lib/salades/getAllSalades";
 import { getAllOptions } from "@/sanity/lib/options/getAllOptions";
 
-export async function getStaticProps() {
-  const dishs = await getAllDishs();
-  const starters = await getAllStarters();
-  const desserts = await getAllDesserts();
-  const salades = await getAllSalades();
-  const options = await getAllOptions();
-
-  return {
-    props: {
-      dishs,
-      starters,
-      desserts,
-      salades,
-      options,
-    },
-    revalidate: 5, // Revalide la page toutes les 60 secondes
-  };
-}
-
 async function Menu() {
   const dishs = await getAllDishs();
   const starters = await getAllStarters();
