@@ -21,20 +21,25 @@ export async function getStaticProps() {
       salades,
       options,
     },
-    revalidate: 60, // Revalide la page toutes les 60 secondes
+    revalidate: 5, // Revalide la page toutes les 60 secondes
   };
 }
 
-
 async function Menu() {
   const dishs = await getAllDishs();
-    const starters = await getAllStarters();
-    const desserts = await getAllDesserts();
-    const salades = await getAllSalades();
-    const options = await getAllOptions();
+  const starters = await getAllStarters();
+  const desserts = await getAllDesserts();
+  const salades = await getAllSalades();
+  const options = await getAllOptions();
   return (
     <Section id="menu" title="Menu">
-      <MenuCard dishs={dishs} starters={starters} desserts={desserts} salades={salades} options={options}/>
+      <MenuCard
+        dishs={dishs}
+        starters={starters}
+        desserts={desserts}
+        salades={salades}
+        options={options}
+      />
     </Section>
   );
 }
