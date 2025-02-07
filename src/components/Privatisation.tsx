@@ -78,7 +78,7 @@ const Privatisation = () => {
 
   return (
     <Section id="privatisation" title="Privatisation">
-      <p className="font-arizonia text-center text-[18px] md:text-[30px] tracking-wide w-1/2 mx-auto">
+      <p className="font-arizonia text-center text-[18px] md:text-[30px] tracking-wide lg:w-1/2 mx-auto">
         Vous pouvez privatiser l'établissement pour tous vos événements,
         mariages, repas d'affaires, anniversaires, ou toutes autres occasions
       </p>

@@ -8,7 +8,7 @@ interface SectionProps {
 
 const Section = ({ title, id, children }: SectionProps) => {
   return (
-    <section id={id} className="px-[10%] mx-auto  text-white py-12 bg-[#6e806a]">
+    <section id={id} className="w-[90%] mx-auto  text-white py-12">
       {/* Titre de la section */}
       <div className="relative w-full h-[15vh] lg:h-[20vh] flex justify-center items-center font-arizonia uppercase text-[35px] lg:text-[50px] text-center rounded-lg ">
         {/* Fond animé pour le titre
