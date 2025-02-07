@@ -25,56 +25,58 @@ function MenuCard({
   options,
 }: MenuCardProps) {
   return (
-    <Tabs defaultValue="formules">
-      <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40 md:pl-0  whitespace-nowrap">
-        <TabsTrigger
-          value="formules"
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-        >
-          Nos formules
-        </TabsTrigger>
-        <TabsTrigger
-          value="entrees"
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-        >
-          Entrées
-        </TabsTrigger>
-        <TabsTrigger
-          value="plats"
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-        >
-          Plats
-        </TabsTrigger>
-        <TabsTrigger
-          value="desserts"
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-        >
-          Desserts
-        </TabsTrigger>
-        <TabsTrigger
-          value="salades"
-          className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-        >
-          Salades
-        </TabsTrigger>
-      </TabsList>
+    <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+      <Tabs defaultValue="formules">
+        <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40 md:pl-0  whitespace-nowrap">
+          <TabsTrigger
+            value="formules"
+            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
+          >
+            Nos formules
+          </TabsTrigger>
+          <TabsTrigger
+            value="entrees"
+            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
+          >
+            Entrées
+          </TabsTrigger>
+          <TabsTrigger
+            value="plats"
+            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
+          >
+            Plats
+          </TabsTrigger>
+          <TabsTrigger
+            value="desserts"
+            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
+          >
+            Desserts
+          </TabsTrigger>
+          <TabsTrigger
+            value="salades"
+            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
+          >
+            Salades
+          </TabsTrigger>
+        </TabsList>
 
-      <TabsContent value="entrees">
-        <Starter starters={starters} />
-      </TabsContent>
-      <TabsContent value="plats">
-        <Dish dishs={dishs} />
-      </TabsContent>
-      <TabsContent value="desserts">
-        <Desserts desserts={desserts} />
-      </TabsContent>
-      <TabsContent value="salades">
-        <Salades salades={salades} />
-      </TabsContent>
-      <TabsContent value="formules">
-        <Options options={options} />
-      </TabsContent>
-    </Tabs>
+        <TabsContent value="entrees">
+          <Starter starters={starters} />
+        </TabsContent>
+        <TabsContent value="plats">
+          <Dish dishs={dishs} />
+        </TabsContent>
+        <TabsContent value="desserts">
+          <Desserts desserts={desserts} />
+        </TabsContent>
+        <TabsContent value="salades">
+          <Salades salades={salades} />
+        </TabsContent>
+        <TabsContent value="formules">
+          <Options options={options} />
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 }
 

@@ -9,8 +9,8 @@ import fork from "../../public/fork.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#262524] text-white py-12 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
+    <footer className=" text-white  w-full bg-[#6e806a] px-[10%]">
+      <div className="border-t-[1px] border-[#E4C590] py-12">
         {/* Conteneur principal */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Section 1 : Logo et description */}
@@ -129,7 +129,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+        <div className="border-t border-[#E4C590] mt-8 pt-8 text-center">
           <p className="font-forum text-sm text-gray-300">
             &copy; {new Date().getFullYear()} La Saveur Authentique. Tous droits
             réservés.
