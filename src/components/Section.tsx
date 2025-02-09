@@ -12,7 +12,7 @@ const Section = ({ title, id, children }: SectionProps) => {
       {/* Titre de la section */}
       <div className="relative w-full h-[15vh] lg:h-[20vh] flex justify-center items-center font-arizonia uppercase text-[35px] lg:text-[50px] text-center rounded-lg ">
         {/* Fond animé pour le titre
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A] to-[#E4C590] opacity-50"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-[#E4C590] opacity-50"></div> */}
         {/* Texte du titre */}
         <h1 className="tracking-widest relative text-white drop-shadow-lg">
           {title}

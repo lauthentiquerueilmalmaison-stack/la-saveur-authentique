@@ -1,6 +1,5 @@
 "use client";
 
-import { useStore, useToggleMenuStore } from "@/store";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -13,6 +12,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { useAppStore } from "@/store/appStore";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -24,11 +24,11 @@ const links = [
 ];
 
 const SideBare = () => {
-  const toggleMenu = useToggleMenuStore((state) => state.toggleMenu);
-  const isOpen = useToggleMenuStore((state) => state.isOpen);
+  const toggleMenu = useAppStore((state) => state.toggleMenu);
+  const isOpen = useAppStore((state) => state.isOpen);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
-  const { activeTab } = useStore(); // Récupérer l'onglet actif du store
+  const { activeTab } = useAppStore(); // Récupérer l'onglet actif du store
 
   // Animation d'ouverture et de fermeture
   useEffect(() => {

@@ -58,10 +58,10 @@ function Hero() {
           L'authentique
         </h1>
         <h3 className="uppercase font-semibold text-[18px] md:text-[23px] lg:text-[30px] mb-4">
-          <span className="lowercase font-medium font-arizonia">du</span> fait
-          maison{" "}
+          <span className="lowercase font-medium font-arizonia">des</span> produits
+          frais{" "}
           <span className="lowercase font-medium font-arizonia">& des</span>{" "}
-          produits frais
+          plats faits maison
         </h3>
         <div className="flex space-y-4 md:space-x-4 flex-col md:flex-row md:items-end">
           <Button bg={true} href="#menu">

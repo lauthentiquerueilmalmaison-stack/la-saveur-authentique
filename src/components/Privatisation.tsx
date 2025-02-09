@@ -243,7 +243,7 @@ const Privatisation = () => {
             disabled={isLoading}
             className={`w-full ${
               isLoading ? "bg-[#E4C590]/70" : "bg-[#E4C590]"
-            } text-[#1E3A8A] py-3 rounded-lg font-semibold hover:bg-[#E4C590]/90 transition-colors flex items-center justify-center`}
+            } text-black py-3 rounded-lg font-semibold hover:bg-[#E4C590]/90 transition-colors flex items-center justify-center`}
           >
             {isLoading ? (
               <ClipLoader size={20} color="#1E3A8A" /> // Spinner de react-spinners

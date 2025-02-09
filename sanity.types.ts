@@ -131,6 +131,42 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
+export type Boisson = {
+  _id: string;
+  _type: "boisson";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  nom?: string;
+  type?: "glace" | "boisson_chaude" | "soft" | "cocktail_alcool" | "mocktail" | "vin_rouge" | "vin_blanc" | "vin_rose" | "bulles" | "bieres_pression" | "bieres_bouteille" | "aperitifs" | "whiskey";
+  prix?: number;
+  quantitesPrix?: Array<{
+    quantite?: string;
+    unite?: "cl" | "l";
+    prix?: number;
+    _type: "quantite";
+    _key: string;
+  }>;
+  ingredients?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "ingredient";
+  }>;
+};
+
+export type Quantite = {
+  _id: string;
+  _type: "quantite";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  quantite?: string;
+  unite?: "cl" | "l";
+  prix?: number;
+};
+
 export type Formule = {
   _id: string;
   _type: "formule";
@@ -158,7 +194,13 @@ export type Salade = {
   _rev: string;
   nom?: string;
   prix?: number;
-  ingredients?: Ingredient[];
+  ingredients?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "ingredient";
+  }>;
 };
 
 export type Dessert = {
@@ -191,7 +233,7 @@ export type Entree = {
   prix?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData | Formule | Ingredient | Salade | Dessert | Plat | Entree;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData | Boisson | Quantite | Formule | Ingredient | Salade | Dessert | Plat | Entree;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/desserts/getAllDesserts.ts
 // Variable: ALL_DESSERTS_QUERY
@@ -204,6 +246,23 @@ export type ALL_DESSERTS_QUERYResult = Array<{
   _rev: string;
   nom?: string;
   prix?: number;
+}>;
+
+// Source: ./src/sanity/lib/boissons/getAllDrinks.ts
+// Variable: ALL_DRINKS_QUERY
+// Query: *[_type == "boisson"] {      _id,      nom,      type,      prix,      quantitesPrix[] {        quantite,        prix      },      ingredients[]-> {        nom      }    }
+export type ALL_DRINKS_QUERYResult = Array<{
+  _id: string;
+  nom: string | null;
+  type: "aperitifs" | "bieres_bouteille" | "bieres_pression" | "boisson_chaude" | "bulles" | "cocktail_alcool" | "glace" | "mocktail" | "soft" | "vin_blanc" | "vin_rose" | "vin_rouge" | "whiskey" | null;
+  prix: number | null;
+  quantitesPrix: Array<{
+    quantite: string | null;
+    prix: number | null;
+  }> | null;
+  ingredients: Array<{
+    nom: string | null;
+  }> | null;
 }>;
 
 // Source: ./src/sanity/lib/dishs/getAllDishs.ts
@@ -229,16 +288,6 @@ export type ALL_INGREDIENTS_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   nom?: string;
-}>;
-
-// Source: ./src/sanity/lib/salades/getAllSalades.ts
-// Variable: ALL_SALADES_QUERY
-// Query: *[                _type == "salade"            ] {              _id,              nom,              prix,              "ingredients": ingredients[]->nom}
-export type ALL_SALADES_QUERYResult = Array<{
-  _id: string;
-  nom: string | null;
-  prix: number | null;
-  ingredients: Array<string | null> | null;
 }>;
 
 // Source: ./src/sanity/lib/starters/getAllStarters.ts
@@ -267,15 +316,27 @@ export type ALL_OPTIONS_QUERYResult = Array<{
   prix?: number;
 }>;
 
+// Source: ./src/sanity/lib/salades/getAllSalades.ts
+// Variable: ALL_SALADES_QUERY
+// Query: *[_type == "salade"] {  nom,  prix,  ingredients[]->{    nom  }}
+export type ALL_SALADES_QUERYResult = Array<{
+  nom: string | null;
+  prix: number | null;
+  ingredients: Array<{
+    nom: string | null;
+  }> | null;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n            *[\n                _type == \"dessert\"\n            ] | order(name asc)\n        ": ALL_DESSERTS_QUERYResult;
+    "\n    *[_type == \"boisson\"] {\n      _id,\n      nom,\n      type,\n      prix,\n      quantitesPrix[] {\n        quantite,\n        prix\n      },\n      ingredients[]-> {\n        nom\n      }\n    }\n  ": ALL_DRINKS_QUERYResult;
     "\n            *[\n                _type == \"plat\"\n            ] | order(name asc)\n        ": ALL_DISHES_QUERYResult;
     "\n            *[\n                _type == \"ingredient\"\n            ] | order(nom asc)\n        ": ALL_INGREDIENTS_QUERYResult;
-    "\n            *[\n                _type == \"salade\"\n            ] {\n              _id,\n              nom,\n              prix,\n              \"ingredients\": ingredients[]->nom}": ALL_SALADES_QUERYResult;
     "\n            *[\n                _type == \"entree\"\n            ] | order(name asc)\n        ": ALL_STARTERS_QUERYResult;
     "\n            *[\n                _type == \"formule\"\n            ] | order(name desc)\n        ": ALL_OPTIONS_QUERYResult;
+    "\n           *[_type == \"salade\"] {\n  nom,\n  prix,\n  ingredients[]->{\n    nom\n  }\n}": ALL_SALADES_QUERYResult;
   }
 }
