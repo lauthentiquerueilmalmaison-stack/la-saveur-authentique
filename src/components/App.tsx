@@ -1,3 +1,4 @@
+import { getAllInformations } from "@/sanity/lib/informations/getAllInformations";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import Hero from "./Hero";
@@ -6,8 +7,10 @@ import Menu from "./Menu";
 import Privatisation from "./Privatisation";
 import SocialMedia from "./SocialMedia";
 import Testimonials from "./Testimonials";
+import { Information } from "../../sanity.types";
 
-const App = () => {
+const App = async () => {
+  const informations = await getAllInformations();
   return (
     <>
       <Hero />
@@ -16,9 +19,9 @@ const App = () => {
         <ImageGallery />
         <Testimonials />
         {/* <SocialMedia /> */}
-        <Contact />
+        <Contact informations={informations} />
         <Privatisation />
-        <Footer />
+        <Footer informations={informations} />
       </div>
     </>
   );

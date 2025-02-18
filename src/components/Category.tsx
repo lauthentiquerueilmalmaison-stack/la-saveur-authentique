@@ -1,17 +1,24 @@
 import Image, { StaticImageData } from "next/image";
-import { Dessert, Entree, Formule, Plat, Salade } from "../../sanity.types";
+import {
+  Dessert,
+  Entree,
+  Formule,
+  Glace,
+  Plat,
+  Salade,
+} from "../../sanity.types";
 import { ReactNode } from "react";
 
 interface CategoryProps {
   children?: ReactNode;
   image: StaticImageData;
-  category: Plat[] | Entree[] | Dessert[] | Salade[] | Formule[];
+  category: Plat[] | Entree[] | Dessert[] | Salade[] | Formule[] | Glace[];
 }
 
 const Category = ({ image, category, children }: CategoryProps) => {
   return (
     <section className="w-full h-full flex py-5 lg:space-x-10">
-      <div className="hidden lg:flex md:w-[30vw] relative rounded-lg overflow-x-hidden bg-black opacity-65">
+      <div className="hidden lg:flex md:w-[35vw] h-full relative rounded-lg overflow-hidden">
         <Image
           src={image}
           alt="image de la categorie"
@@ -23,11 +30,11 @@ const Category = ({ image, category, children }: CategoryProps) => {
       </div>
       <div className="flex-1">
         {children}
-        {category.map((cat) => {
+        {category.map((cat, index) => {
           return (
             <div
               key={cat._id}
-              className="flex flex-nowrap items-center justify-between text-[18px] lg:text-[25px] py-3 border-b-[1px] border-[#333333]"
+              className={`flex flex-nowrap items-center justify-between text-[18px] lg:text-[23px] py-3 ${index < category.length - 1 ? "border-b-[1px] border-white/30" : ""} `}
             >
               <span className="inline-block">{cat.nom}</span>
               <span className="inline-block">{cat.prix}&euro;</span>

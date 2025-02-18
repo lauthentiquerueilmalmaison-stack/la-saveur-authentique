@@ -3,7 +3,7 @@ import type { StructureResolver } from "sanity/structure";
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("La Saveur Authentique")
+    .title("L'Authentique")
     .items([
       S.documentTypeListItem("entree").title("Entrées"),
       S.documentTypeListItem("plat").title("Plats"),
@@ -11,6 +11,8 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("dessert").title("Dessets"),
       S.documentTypeListItem("ingredient").title("Ingrédients"),
       S.documentTypeListItem("formule").title("Formules"),
+      S.documentTypeListItem("information").title("Informations"),
+      S.documentTypeListItem("glace").title("Glaces"),
       S.divider(),
       ...S.documentTypeListItems().filter(
         (item) =>
@@ -22,6 +24,8 @@ export const structure: StructureResolver = (S) =>
             "dessert",
             "ingredient",
             "formule",
+            "information",
+            "glace",
           ].includes(item.getId()!)
       ),
     ]);

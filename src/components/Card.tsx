@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card = ({ src, index }: CardProps) => {
   return (
-    <div className="relative  flex-shrink-0 w-full md:w-[50vw] h-fit mx-1 overflow-hidden">
+    <div className="relative  flex-shrink-0 w-[80vw] md:w-[50vw] h-fit mx-1 overflow-hidden">
       <Image
         src={src}
         alt={`carousel-image-${index}`}

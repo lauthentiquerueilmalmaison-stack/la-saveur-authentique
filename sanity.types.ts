@@ -131,6 +131,45 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
+export type Glace = {
+  _id: string;
+  _type: "glace";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  nom?: string;
+  prix?: number;
+};
+
+export type Information = {
+  _id: string;
+  _type: "information";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  adresse?: string;
+  telephone?: string;
+  email?: string;
+  facebook?: string;
+  instagram?: string;
+  horaires?: Array<{
+    jour?:
+      | "lundi"
+      | "mardi"
+      | "mercredi"
+      | "jeudi"
+      | "vendredi"
+      | "samedi"
+      | "dimanche";
+    plagesHoraires?: Array<{
+      ouverture?: string;
+      fermeture?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+};
+
 export type Formule = {
   _id: string;
   _type: "formule";
@@ -203,6 +242,8 @@ export type AllSanitySchemaTypes =
   | Geopoint
   | Slug
   | SanityAssetSourceData
+  | Glace
+  | Information
   | Formule
   | Ingredient
   | Salade
@@ -236,6 +277,51 @@ export type ALL_DISHES_QUERYResult = Array<{
   prix?: number;
 }>;
 
+// Source: ./src/sanity/lib/icecream/getAllIcecreams.ts
+// Variable: ALL_ICECREAMS_QUERY
+// Query: *[                _type == "dessert"            ] | order(name asc)
+export type ALL_ICECREAMS_QUERYResult = Array<{
+  _id: string;
+  _type: "dessert";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  nom?: string;
+  prix?: number;
+}>;
+
+// Source: ./src/sanity/lib/informations/getAllInformations.ts
+// Variable: ALL_INFORMATIONS_QUERY
+// Query: *[                _type == "information"            ]
+export type ALL_INFORMATIONS_QUERYResult = Array<{
+  _id: string;
+  _type: "information";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  adresse?: string;
+  telephone?: string;
+  email?: string;
+  facebook?: string;
+  instagram?: string;
+  horaires?: Array<{
+    jour?:
+      | "dimanche"
+      | "jeudi"
+      | "lundi"
+      | "mardi"
+      | "mercredi"
+      | "samedi"
+      | "vendredi";
+    plagesHoraires?: Array<{
+      ouverture?: string;
+      fermeture?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+}>;
+
 // Source: ./src/sanity/lib/ingredients/getAllIngredients.ts
 // Variable: ALL_INGREDIENTS_QUERY
 // Query: *[                _type == "ingredient"            ] | order(nom asc)
@@ -263,11 +349,17 @@ export type ALL_OPTIONS_QUERYResult = Array<{
 
 // Source: ./src/sanity/lib/salades/getAllSalades.ts
 // Variable: ALL_SALADES_QUERY
-// Query: *[_type == "salade"] {  nom,  prix,  ingredients[]->{    nom  }}
+// Query: *[_type == "salade"] {             _id,              nom,              prix,              ingredients[]->{                _id,              _type,              _createdAt,              _updatedAt,              _rev,              nom              }}
 export type ALL_SALADES_QUERYResult = Array<{
+  _id: string;
   nom: string | null;
   prix: number | null;
   ingredients: Array<{
+    _id: string;
+    _type: "ingredient";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
     nom: string | null;
   }> | null;
 }>;
@@ -289,11 +381,14 @@ export type ALL_STARTERS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n            *[\n                _type == "dessert"\n            ] | order(name asc)\n        ': ALL_DESSERTS_QUERYResult;
+    '\n            *[\n                _type == "dessert"\n            ] | order(name asc)\n        ':
+      | ALL_DESSERTS_QUERYResult
+      | ALL_ICECREAMS_QUERYResult;
     '\n            *[\n                _type == "plat"\n            ] | order(name asc)\n        ': ALL_DISHES_QUERYResult;
+    '\n            *[\n                _type == "information"\n            ]\n        ': ALL_INFORMATIONS_QUERYResult;
     '\n            *[\n                _type == "ingredient"\n            ] | order(nom asc)\n        ': ALL_INGREDIENTS_QUERYResult;
     '\n            *[\n                _type == "formule"\n            ] | order(name desc)\n        ': ALL_OPTIONS_QUERYResult;
-    '\n           *[_type == "salade"] {\n  nom,\n  prix,\n  ingredients[]->{\n    nom\n  }\n}': ALL_SALADES_QUERYResult;
+    '\n           *[_type == "salade"] {\n             _id,\n              nom,\n              prix,\n              ingredients[]->{\n                _id,\n              _type,\n              _createdAt,\n              _updatedAt,\n              _rev,\n              nom\n              }\n}': ALL_SALADES_QUERYResult;
     '\n            *[\n                _type == "entree"\n            ] | order(name asc)\n        ': ALL_STARTERS_QUERYResult;
   }
 }

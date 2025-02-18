@@ -32,7 +32,7 @@ const ImageGallery = () => {
       <div className="relative overflow-hidden" ref={emblaRef}>
         <div className="flex ">
           {images.map((src, index) => (
-            <Card src={src} index={index} />
+            <Card key={index} src={src} index={index} />
           ))}
         </div>
       </div>

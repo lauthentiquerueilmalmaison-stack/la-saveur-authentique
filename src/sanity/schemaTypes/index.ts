@@ -5,6 +5,8 @@ import { dessertType } from "./dessertType";
 import { saladeType } from "./saladeType";
 import { ingredientType } from "./ingredientType";
 import { formuleType } from "./formuleType";
+import { informationType } from "./informationType";
+import { glaceType } from "./glaceType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -14,5 +16,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     saladeType,
     ingredientType,
     formuleType,
+    informationType,
+    glaceType
   ],
 };

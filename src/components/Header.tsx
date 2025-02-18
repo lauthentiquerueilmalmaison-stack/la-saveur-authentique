@@ -17,7 +17,6 @@ const links = [
   { id: "#accueil", title: "accueil" },
   { id: "#menu", title: "menu" },
   { id: "#avis", title: "avis" },
-  { id: "#nous-suivre", title: "nous suivre" },
   { id: "#contact", title: "contact" },
   { id: "#privatisation", title: "privatisation" },
 ];

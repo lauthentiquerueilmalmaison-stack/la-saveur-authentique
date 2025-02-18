@@ -8,7 +8,7 @@ interface SaladeProps {
 const Salades = ({ salades }: SaladeProps) => {
   return (
     <div className="w-full h-full flex py-5 lg:space-x-10">
-      <div className="hidden lg:flex md:w-[30vw]   relative rounded-lg overflow-x-hidden bg-black opacity-65">
+      <div className="hidden lg:flex md:w-[35vw]  relative rounded-lg overflow-x-hidden">
         <Image
           src={salade}
           alt="salade"
@@ -19,24 +19,24 @@ const Salades = ({ salades }: SaladeProps) => {
         />{" "}
       </div>
       <div className="flex-1">
-        {salades.map((salade) => {
+        {salades.map((salade, index) => {
           return (
             <div
               key={salade._id}
-              className="flex flex-col py-2 border-b-[1px] border-white"
+              className={`flex flex-col py-2 ${index < salades.length - 1 ? "border-b-[1px] border-white/30" : ""} `}
             >
-              <div className="flex flex-nowrap items-center justify-between text-[18px] lg:text-[25px]">
+              <div className="flex flex-nowrap items-center justify-between text-[18px] lg:text-[22px]">
                 <span className="inline-block">{salade.nom}</span>
                 <span className="inline-block">{salade.prix} &euro;</span>
               </div>
-              <div className="flex">
+              <div className="flex flex-wrap text-white/30">
                 {salade.ingredients?.map((ingredient, index) => {
                   return (
                     <Ingredient
                       key={ingredient._id}
-                      name={ingredient.nom ?? ""}
+                      name={ingredient.nom!}
                       index={index}
-                      length={salade.ingredients?.length ?? 0}
+                      length={salade.ingredients?.length!}
                     />
                   );
                 })}

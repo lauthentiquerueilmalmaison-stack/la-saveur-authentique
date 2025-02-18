@@ -1,18 +1,29 @@
 import React from "react";
 import { Formule } from "../../sanity.types";
-import Category from "./Category";
-import salade from "../../public/salade.jpg";
+import Option from "./Option";
+import OptionCard from "./OptionCard";
 
 interface OptionsProps {
   options: Formule[];
 }
 const Options = ({ options }: OptionsProps) => {
   return (
-    <Category category={options} image={salade}>
-      <h2 className="text-[18px] lg:text-[25px] font-semibold">
-        Formule midi (du Lundi au Vendredi) hors jours fériérs
-      </h2>
-    </Category>
+    <OptionCard>
+      <div className="flex flex-col items-center">
+        <h3 className="text-[25px] lg:text-[35px] font-semibold">
+          Formules midi
+        </h3>
+        <span className="text-sm lg:text-[16px] italic text-center">
+          Offre valable uniquement le midi, du lundi au vendredi, hors week-ends
+          et jours fériés
+        </span>
+      </div>
+      <div>
+        {options.map((option, index) => {
+          return <Option option={option} index={index} />;
+        })}
+      </div>
+    </OptionCard>
   );
 };
 

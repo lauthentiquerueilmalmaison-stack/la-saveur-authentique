@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-export const formuleType = defineType({
+export const glaceType = defineType({
   name: "glace",
   title: "Glaces",
   type: "document",

@@ -36,34 +36,33 @@ const Testimonials = () => {
   return (
     <Section id="avis" title="Les avis">
       {/* Contenu des avis */}
-      <div className="backdrop-blur-sm rounded-lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {avis.map((avis) => (
-            <div key={avis.id} className="bg-white/20 p-6 rounded-lg">
-              {/* Nom du client */}
-              <h2 className="text-xl font-semibold text-[#E4C590] mb-2">
-                {avis.nom}
-              </h2>
 
-              {/* Note sous forme d'étoiles */}
-              <div className="flex space-x-1 mb-4">
-                {[...Array(5)].map((_, index) => (
-                  <span
-                    key={index}
-                    className={`text-2xl ${
-                      index < avis.note ? "text-[#E4C590]" : "text-gray-400"
-                    }`}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg">
+        {avis.map((avis) => (
+          <div key={avis.id} className="bg-black/50 p-6 rounded-lg">
+            {/* Nom du client */}
+            <h2 className="text-xl font-semibold text-[#E4C590] mb-2">
+              {avis.nom}
+            </h2>
 
-              {/* Commentaire */}
-              <p className="text-gray-200">{avis.commentaire}</p>
+            {/* Note sous forme d'étoiles */}
+            <div className="flex space-x-1 mb-4">
+              {[...Array(5)].map((_, index) => (
+                <span
+                  key={index}
+                  className={`text-2xl ${
+                    index < avis.note ? "text-[#E4C590]" : "text-gray-400"
+                  }`}
+                >
+                  ★
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Commentaire */}
+            <p className="text-white">{avis.commentaire}</p>
+          </div>
+        ))}
       </div>
     </Section>
   );
