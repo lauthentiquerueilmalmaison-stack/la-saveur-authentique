@@ -158,13 +158,7 @@ export type Salade = {
   _rev: string;
   nom?: string;
   prix?: number;
-  ingredients?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "ingredient";
-  }>;
+  ingredients?: Array<Ingredient>;
 };
 
 export type Dessert = {
@@ -197,7 +191,24 @@ export type Entree = {
   prix?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData | Formule | Ingredient | Salade | Dessert | Plat | Entree;
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageHotspot
+  | SanityImageCrop
+  | SanityFileAsset
+  | SanityImageAsset
+  | SanityImageMetadata
+  | Geopoint
+  | Slug
+  | SanityAssetSourceData
+  | Formule
+  | Ingredient
+  | Salade
+  | Dessert
+  | Plat
+  | Entree;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/desserts/getAllDesserts.ts
 // Variable: ALL_DESSERTS_QUERY
@@ -278,11 +289,11 @@ export type ALL_STARTERS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n            *[\n                _type == \"dessert\"\n            ] | order(name asc)\n        ": ALL_DESSERTS_QUERYResult;
-    "\n            *[\n                _type == \"plat\"\n            ] | order(name asc)\n        ": ALL_DISHES_QUERYResult;
-    "\n            *[\n                _type == \"ingredient\"\n            ] | order(nom asc)\n        ": ALL_INGREDIENTS_QUERYResult;
-    "\n            *[\n                _type == \"formule\"\n            ] | order(name desc)\n        ": ALL_OPTIONS_QUERYResult;
-    "\n           *[_type == \"salade\"] {\n  nom,\n  prix,\n  ingredients[]->{\n    nom\n  }\n}": ALL_SALADES_QUERYResult;
-    "\n            *[\n                _type == \"entree\"\n            ] | order(name asc)\n        ": ALL_STARTERS_QUERYResult;
+    '\n            *[\n                _type == "dessert"\n            ] | order(name asc)\n        ': ALL_DESSERTS_QUERYResult;
+    '\n            *[\n                _type == "plat"\n            ] | order(name asc)\n        ': ALL_DISHES_QUERYResult;
+    '\n            *[\n                _type == "ingredient"\n            ] | order(nom asc)\n        ': ALL_INGREDIENTS_QUERYResult;
+    '\n            *[\n                _type == "formule"\n            ] | order(name desc)\n        ': ALL_OPTIONS_QUERYResult;
+    '\n           *[_type == "salade"] {\n  nom,\n  prix,\n  ingredients[]->{\n    nom\n  }\n}': ALL_SALADES_QUERYResult;
+    '\n            *[\n                _type == "entree"\n            ] | order(name asc)\n        ': ALL_STARTERS_QUERYResult;
   }
 }

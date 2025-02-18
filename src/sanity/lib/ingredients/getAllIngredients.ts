@@ -12,7 +12,7 @@ export const getAllIngredients = async () => {
   try {
     const ingredients = await sanityFetch({ query: ALL_INGREDIENTS_QUERY });
 
-    return ingredients.data || [];
+    return ingredients.data;
   } catch (error) {
     console.error("Error fetching all ingredients", error);
     return [];

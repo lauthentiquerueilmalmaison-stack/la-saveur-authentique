@@ -58,7 +58,7 @@ const SideBare = () => {
   return (
     <div
       ref={sidebarRef}
-      className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#262524] text-white p-6 overflow-y-auto z-50"
+      className="fixed inset-y-0 right-0 w-full max-w-sm bg-black  text-white p-6 overflow-y-auto z-50"
       style={{ transform: "translateX(100%)" }}
     >
       {/* Bouton de fermeture */}

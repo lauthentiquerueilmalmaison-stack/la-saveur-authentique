@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       <Hero />
-      <div className="w-full h-full bg-gradient-to-r from-[#50936a] to-[#000000df]">
+      <div className="w-full h-full bg-black bg-[radial-gradient(circle_farthest-side_at_center,_hsl(102,37%,75%)_-80%,_hsl(0,0%,0%)_150%)]">
         <Menu />
         <ImageGallery />
         <Testimonials />
