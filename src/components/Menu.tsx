@@ -16,15 +16,13 @@ async function Menu() {
     <Section id="menu" title="Menu">
       <div className="flex flex-col space-y-5 w-full lg:w-1/2 lg:mx-auto bg-black/70 p-5 rounded-lg font-forum">
         <div className="flex flex-col items-center">
-          <h3 className="text-[18px] lg:text-[30px] font-semibold">
+          <h3 className="text-[25px] lg:text-[30px] font-semibold">
             Nos formules midi
           </h3>
-          <p className="text-sm lg:text-[16px] italic">
-            Offre valable uniquement le midi, du lundi au vendredi,
-          </p>
-          <p className="text-sm lg:text-[16px] italic">
-            hors week-ends et jours fériés
-          </p>
+          <span className="text-sm lg:text-[16px] italic text-center">
+            Offre valable uniquement le midi, du lundi au vendredi, hors
+            week-ends et jours fériés
+          </span>
         </div>
         <div>
           {options.map((option, index) => {
