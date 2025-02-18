@@ -50,7 +50,7 @@ export default function RootLayout({
     <html lang="fr-FR">
       <ReactLenis root options={{ lerp: 0.1, anchors: true }}>
         <body
-          className={`${forum.variable} ${arizonia.variable}  bg-[#0d0c0b] overflow-x-hidden`}
+          className={`${forum.variable} ${arizonia.variable} overflow-x-hidden`}
         >
           <Header />
           {children}

@@ -83,7 +83,7 @@ const Privatisation = () => {
         mariages, repas d'affaires, anniversaires, ou toutes autres occasions
       </p>
       {/* Contenu de la section */}
-      <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg min-h-full">
+      <div className="mt-8 p-6 min-h-full">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Grille pour les champs (2 par ligne sur PC) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

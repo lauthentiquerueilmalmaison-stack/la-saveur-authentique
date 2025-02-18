@@ -9,10 +9,10 @@ import fork from "../../public/fork.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#262524] text-white py-12 px-6 lg:px-12">
-      <div className="w-[90%] mx-auto">
+    <footer className="text-white py-8 ">
+      <div className="w-full px-[5vw] 3xl:px-[10vw] mx-auto">
         {/* Conteneur principal */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-12  border-t border-[#E4C590] ">
           {/* Section 1 : Logo et description */}
           <div className="flex flex-col items-center md:items-start">
             <Link href="#accueil">
@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
               </div>
             </Link>
-            <p className="font-forum text-sm text-gray-300 mt-4 text-center md:text-left">
+            <p className="font-forum text-sm text-white mt-4 text-center  lg:w-52">
               Découvrez la saveur authentique de nos plats faits maison avec des
               produits frais.
             </p>
@@ -39,7 +39,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#accueil"
-                  className="font-forum text-gray-300 hover:text-[#E4C590] transition-colors"
+                  className="font-forum text-white hover:text-[#E4C590] transition-colors"
                 >
                   Accueil
                 </Link>
@@ -47,7 +47,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#menu"
-                  className="font-forum text-gray-300 hover:text-[#E4C590] transition-colors"
+                  className="font-forum text-white hover:text-[#E4C590] transition-colors"
                 >
                   Menu
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#contact"
-                  className="font-forum text-gray-300 hover:text-[#E4C590] transition-colors"
+                  className="font-forum text-white hover:text-[#E4C590] transition-colors"
                 >
                   Contact
                 </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#privatisation"
-                  className="font-forum text-gray-300 hover:text-[#E4C590] transition-colors"
+                  className="font-forum text-white hover:text-[#E4C590] transition-colors"
                 >
                   Privatisation
                 </Link>
@@ -75,16 +75,14 @@ const Footer = () => {
           <div className="flex flex-col items-center text-center md:text-left md:items-start">
             <h3 className="font-arizona text-xl mb-4">Nous contacter</h3>
             <ul className="space-y-2">
-              <li className="font-forum text-gray-300">
+              <li className="font-forum text-white">
                 41 Bd National, 92500 Rueil-Malmaison
               </li>
-              <li className="font-forum text-gray-300">0956739572</li>
-              <li className="font-forum text-gray-300">
+              <li className="font-forum text-white">0956739572</li>
+              <li className="font-forum text-white">
                 lauthentiquegestion@gmail.com
               </li>
-              <li className="font-forum text-gray-300">
-                Lun - Dim : 12h - 22h
-              </li>
+              <li className="font-forum text-white">Lun - Dim : 12h - 22h</li>
             </ul>
           </div>
 
@@ -96,7 +94,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#E4C590] transition-colors"
+                className="text-white hover:text-[#E4C590] transition-colors"
               >
                 <FaFacebook size={24} />
               </a>
@@ -104,7 +102,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#E4C590] transition-colors"
+                className="text-white hover:text-[#E4C590] transition-colors"
               >
                 <FaInstagram size={24} />
               </a>
@@ -112,7 +110,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#E4C590] transition-colors"
+                className="text-white hover:text-[#E4C590] transition-colors"
               >
                 <FaTwitter size={24} />
               </a>
@@ -120,7 +118,7 @@ const Footer = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#E4C590] transition-colors"
+                className="text-white hover:text-[#E4C590] transition-colors"
               >
                 <FaYoutube size={24} />
               </a>
@@ -129,8 +127,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="font-forum text-sm text-gray-300">
+        <div className="border-t border-[#E4C590] mt-8 pt-8 text-center">
+          <p className="font-forum text-sm text-white">
             &copy; {new Date().getFullYear()} La Saveur Authentique. Tous droits
             réservés.
           </p>

@@ -90,7 +90,7 @@ const Header = () => {
   }, [isClient, isScrolled, setIsScrolled, setActiveTab]);
 
   return (
-    <header className="h-[10vh] w-full fixed top-0 z-40 py-3" ref={headerRef}>
+    <header className="h-[10vh] w-full fixed top-0 z-50 py-3" ref={headerRef}>
       <div className=" flex items-center  h-full px-5  justify-between lg:grid lg:grid-cols-12">
         <div className="lg:col-span-3 ">
           <Link href="/">

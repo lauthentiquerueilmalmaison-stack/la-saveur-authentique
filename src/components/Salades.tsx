@@ -1,4 +1,4 @@
-import salade from "../../public/salade.jpg";
+import salade from "../../public/plat4.jpg";
 import { Salade } from "../../sanity.types";
 import Image from "next/image";
 import Ingredients from "./Ingredients";
@@ -8,8 +8,15 @@ interface SaladeProps {
 const Salades = ({ salades }: SaladeProps) => {
   return (
     <div className="w-full h-full flex py-5 lg:space-x-10">
-      <div className="hidden lg:flex md:w-[30vw] lg:min-h-[70vh] h-fit  relative rounded-lg overflow-x-hidden bg-black opacity-65">
-        <Image src={salade} alt="plat" fill priority />
+      <div className="hidden lg:flex md:w-[30vw]   relative rounded-lg overflow-x-hidden bg-black opacity-65">
+        <Image
+          src={salade}
+          alt="salade"
+          width={1600}
+          height={1060}
+          className="object-contain"
+          loading="lazy"
+        />{" "}
       </div>
       <div className="flex-1">
         {salades.map((salade) => {

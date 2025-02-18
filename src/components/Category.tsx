@@ -11,14 +11,15 @@ interface CategoryProps {
 const Category = ({ image, category, children }: CategoryProps) => {
   return (
     <section className="w-full h-full flex py-5 lg:space-x-10">
-      <div className="hidden lg:flex lg:w-[30vw] lg:h-[70vh] relative rounded-lg overflow-x-hidden ">
+      <div className="hidden lg:flex md:w-[30vw] relative rounded-lg overflow-x-hidden bg-black opacity-65">
         <Image
           src={image}
-          alt="food image "
-          fill
-          priority
-          style={{ objectFit: "cover" }}
-        />
+          alt="image de la categorie"
+          width={1600}
+          height={1060}
+          className="object-contain"
+          loading="lazy"
+        />{" "}
       </div>
       <div className="flex-1">
         {children}

@@ -42,7 +42,7 @@ const SocialMedia = () => {
   return (
     <Section id="nous-suivre" title="Nous suivre">
       {/* Contenu de la section */}
-      <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg min-h-full">
+      <div className="mt-8 p-6  min-h-full">
         <div className="flex flex-wrap justify-center gap-8">
           {reseauxSociaux.map((reseau) => (
             <a
@@ -50,7 +50,7 @@ const SocialMedia = () => {
               href={reseau.lien}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center p-6 bg-white/20 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 transform w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5"
+              className="flex flex-col items-center p-6 hover:scale-105 transform w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5"
               style={{ backgroundColor: `${reseau.couleur}20` }} // Ajoute une opacité à la couleur
             >
               {/* Icône du réseau social */}

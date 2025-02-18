@@ -1,4 +1,4 @@
-import dessert from "../../public/dessert.jpg";
+import dessert from "../../public/plat8.jpg";
 import { Dessert } from "../../sanity.types";
 import Category from "./Category";
 

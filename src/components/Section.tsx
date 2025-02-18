@@ -8,7 +8,10 @@ interface SectionProps {
 
 const Section = ({ title, id, children }: SectionProps) => {
   return (
-    <section id={id} className="w-[90%] mx-auto  text-white py-12">
+    <section
+      id={id}
+      className={`${id === "galerie" ? "" : "px-[5vw] 3xl:px-[10vw]"} w-full  mx-auto  text-white py-12`}
+    >
       {/* Titre de la section */}
       <div className="relative w-full h-[15vh] lg:h-[20vh] flex justify-center items-center font-arizonia uppercase text-[35px] lg:text-[50px] text-center rounded-lg ">
         {/* Fond animé pour le titre
@@ -20,7 +23,11 @@ const Section = ({ title, id, children }: SectionProps) => {
       </div>
 
       {/* Contenu de la section */}
-      <div className="mt-8   rounded-lg  min-h-full ">{children}</div>
+      <div
+        className={`mt-8   min-h-full ${id !== "galerie" ? "bg-white/30  p-5 rounded-lg" : ""} overflow-hidden`}
+      >
+        {children}
+      </div>
     </section>
   );
 };
