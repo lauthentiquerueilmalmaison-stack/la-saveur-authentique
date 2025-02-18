@@ -13,6 +13,11 @@ import {
 
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { useAppStore } from "@/store/appStore";
+import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
+
+interface SidebarProps {
+  informations: ALL_INFORMATIONS_QUERYResult;
+}
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -22,12 +27,42 @@ const links = [
   { id: "#privatisation", title: "privatisation" },
 ];
 
-const SideBare = () => {
+const Sidebar = ({ informations }: SidebarProps) => {
+  const { adresse, telephone, email, facebook, instagram, horaires } =
+    informations[0];
   const toggleMenu = useAppStore((state) => state.toggleMenu);
   const isOpen = useAppStore((state) => state.isOpen);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   const { activeTab } = useAppStore(); // Récupérer l'onglet actif du store
+
+  const horairesMap = new Map();
+  const joursFermes: string[] = [];
+
+  horaires?.forEach(({ jour, plagesHoraires }) => {
+    if (!plagesHoraires || plagesHoraires.length === 0) {
+      joursFermes.push(jour!);
+    } else {
+      const plagesString = plagesHoraires
+        .map(({ ouverture, fermeture }) => `${ouverture} - ${fermeture}`)
+        .join(" | ");
+
+      if (horairesMap.has(plagesString)) {
+        horairesMap.get(plagesString).push(jour);
+      } else {
+        horairesMap.set(plagesString, [jour]);
+      }
+    }
+  });
+
+  // Génération du texte des horaires
+  const horairesTexte = [
+    ...Array.from(
+      horairesMap,
+      ([plages, jours]) => `${jours.join(", ")} : ${plages}`
+    ),
+    joursFermes.length > 0 ? `${joursFermes.join(", ")} : Fermé` : null,
+  ].filter(Boolean);
 
   // Animation d'ouverture et de fermeture
   useEffect(() => {
@@ -97,19 +132,26 @@ const SideBare = () => {
         <ul className="space-y-2">
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <MapPinIcon className="w-5 h-5" />
-            <span>41 Bd National, 92500 Rueil-Malmaison</span>
+            <span>{adresse}</span>
           </li>
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <PhoneIcon className="w-5 h-5" />
-            <span>0956739572</span>
+            <span>{telephone}</span>
           </li>
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <EnvelopeIcon className="w-5 h-5" />
-            <span>lauthentiquegestion@gmail.com</span>
+            <span>{email}</span>
           </li>
-          <li className="flex items-center space-x-2 font-forum text-gray-300">
-            <ClockIcon className="w-5 h-5" />
-            <span>Lun - Dim : 12h - 22h</span>
+          <li className="flex flex-col font-forum text-gray-300">
+            <div className="flex items-center space-x-2">
+              <ClockIcon className="w-5 h-5" />
+              <span>Horaires :</span>
+            </div>
+            <ul className="pl-7 space-y-1">
+              {horairesTexte.map((horaire, index) => (
+                <li key={index}>{horaire}</li>
+              ))}
+            </ul>
           </li>
         </ul>
       </div>
@@ -119,7 +161,7 @@ const SideBare = () => {
         <h3 className="font-arizona text-xl mb-4">Suivez-nous</h3>
         <div className="flex space-x-4">
           <a
-            href="https://facebook.com"
+            href={facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#E4C590] transition-colors"
@@ -127,28 +169,12 @@ const SideBare = () => {
             <FaFacebook className="w-6 h-6" />
           </a>
           <a
-            href="https://instagram.com"
+            href={instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#E4C590] transition-colors"
           >
             <FaInstagram className="w-6 h-6" />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#E4C590] transition-colors"
-          >
-            <FaTwitter className="w-6 h-6" />
-          </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#E4C590] transition-colors"
-          >
-            <FaYoutube className="w-6 h-6" />
           </a>
         </div>
       </div>
@@ -156,4 +182,4 @@ const SideBare = () => {
   );
 };
 
-export default SideBare;
+export default Sidebar;

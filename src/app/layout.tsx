@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Forum, Arizonia } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import { ReactLenis } from "../utils/lenis";
 const forum = Forum({
   weight: "400",
@@ -52,7 +51,7 @@ export default function RootLayout({
         <body
           className={`${forum.variable} ${arizonia.variable} overflow-x-hidden bg-black`}
         >
-          <Header />
+         
           {children}
         </body>
       </ReactLenis>

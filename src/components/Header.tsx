@@ -1,17 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import logo from "../../public/logo-2.svg";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import Button from "./Button";
-import spoon from "../../public/spoon.svg";
-import fork from "../../public/fork.svg";
 import NavLink from "./NavLink";
-import SideBare from "./SideBare";
+import Sidebar from "./Sidebar";
 import Link from "next/link";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { useAppStore } from "@/store/appStore";
+import Logo from "./Logo";
+import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
+
+interface HeaderProps {
+  informations: ALL_INFORMATIONS_QUERYResult;
+}
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -21,8 +23,8 @@ const links = [
   { id: "#privatisation", title: "privatisation" },
 ];
 
-const Header = () => {
-  const phoneNumber = "+33956739572";
+const Header = ({ informations }: HeaderProps) => {
+  const { telephone } = informations[0];
   const toggleMenu = useAppStore((state) => state.toggleMenu);
   const isOpen = useAppStore((state) => state.isOpen);
   const headerRef = useRef<HTMLElement>(null); // Typage de la référence
@@ -93,15 +95,7 @@ const Header = () => {
       <div className=" flex items-center  h-full px-5  justify-between lg:grid lg:grid-cols-12">
         <div className="lg:col-span-3 ">
           <Link href="/">
-            <div className="flex space-x-2 items-center cursor-pointer w-fit">
-              <div className="w-40 md:w-48">
-                <Image src={logo} priority alt="la saveur authentique" />
-              </div>
-              <div className="flex items-center space-x-1">
-                <Image src={spoon} alt="spoon" width={8} height={10} />
-                <Image src={fork} alt="fork" width={8} height={10} />
-              </div>
-            </div>
+            <Logo />
           </Link>
         </div>
         <nav className="hidden lg:col-span-6 lg:block 2xl:col-span-5 2xl:col-start-5">
@@ -119,7 +113,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="hidden lg:flex lg:justify-end lg:col-span-3 ">
-          <a href={`tel:${phoneNumber}`}>
+          <a href={`tel:${telephone}`}>
             <Button>appellez pour réserver</Button>
           </a>
         </div>
@@ -130,7 +124,7 @@ const Header = () => {
           />
         </div>
       </div>
-      {isOpen && <SideBare />}
+      {isOpen && <Sidebar informations={informations} />}
     </header>
   );
 };
