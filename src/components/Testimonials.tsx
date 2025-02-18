@@ -36,13 +36,10 @@ const Testimonials = () => {
   return (
     <Section id="avis" title="Les avis">
       {/* Contenu des avis */}
-      <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+      <div className="mt-8 p-6  backdrop-blur-sm rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {avis.map((avis) => (
-            <div
-              key={avis.id}
-              className="bg-white/20 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
+            <div key={avis.id} className="bg-white/20 p-6 rounded-lg">
               {/* Nom du client */}
               <h2 className="text-xl font-semibold text-[#E4C590] mb-2">
                 {avis.nom}

@@ -7,11 +7,11 @@ import Button from "./Button";
 import spoon from "../../public/spoon.svg";
 import fork from "../../public/fork.svg";
 import NavLink from "./NavLink";
-import { useStore, useToggleMenuStore } from "@/store";
 import SideBare from "./SideBare";
 import Link from "next/link";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
+import { useAppStore } from "@/store/appStore";
 
 const links = [
   { id: "#accueil", title: "accueil" },
@@ -24,10 +24,10 @@ const links = [
 
 const Header = () => {
   const phoneNumber = "+33956739572";
-  const toggleMenu = useToggleMenuStore((state) => state.toggleMenu);
-  const isOpen = useToggleMenuStore((state) => state.isOpen);
+  const toggleMenu = useAppStore((state) => state.toggleMenu);
+  const isOpen = useAppStore((state) => state.isOpen);
   const headerRef = useRef<HTMLElement>(null); // Typage de la référence
-  const { isScrolled, setIsScrolled, activeTab, setActiveTab } = useStore();
+  const { isScrolled, setIsScrolled, activeTab, setActiveTab } = useAppStore();
 
   // Vérification côté client
   const [isClient, setIsClient] = useState(false);
@@ -90,7 +90,7 @@ const Header = () => {
   }, [isClient, isScrolled, setIsScrolled, setActiveTab]);
 
   return (
-    <header className="h-[10vh] w-full fixed top-0 z-40 py-3" ref={headerRef}>
+    <header className="h-[10vh] w-full fixed top-0 z-50 py-3" ref={headerRef}>
       <div className=" flex items-center  h-full px-5  justify-between lg:grid lg:grid-cols-12">
         <div className="lg:col-span-3 ">
           <Link href="/">

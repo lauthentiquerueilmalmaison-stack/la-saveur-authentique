@@ -1,17 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import photo from "../../public/photo-9.jpg";
-import photo1 from "../../public/photo-7.jpg";
-import photo2 from "../../public/photo-8.jpg";
+import photo1 from "../../public/photo1.jpg";
+import photo2 from "../../public/photo2.jpg";
+import photo3 from "../../public/photo3.jpg";
+import photo4 from "../../public/photo4.jpg";
+import photo5 from "../../public/photo5.jpg";
+import photo6 from "../../public/photo6.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Button from "./Button";
 import { useRef } from "react";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 // Composant réutilisable pour les images du carrousel
-const CarouselImage = ({ src, alt }: { src: any; alt: string }) => (
-  <div className="relative flex-none w-full h-full bg-black opacity-25">
+const CarouselImage = ({ src, alt }: { src: StaticImport; alt: string }) => (
+  <div className="relative flex-none w-full h-full  opacity-25">
     <Image
       src={src}
       fill
@@ -31,14 +35,17 @@ function Hero() {
   const heroTextRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    { src: photo, alt: "Photo 1" },
-    { src: photo1, alt: "Photo 2" },
-    { src: photo2, alt: "Photo 3" },
+    { src: photo1, alt: "Photo 1" },
+    { src: photo2, alt: "Photo 2" },
+    { src: photo3, alt: "Photo 3" },
+    { src: photo4, alt: "Photo 4" },
+    { src: photo5, alt: "Photo 5" },
+    { src: photo6, alt: "Photo 6" },
   ];
 
   return (
     <section
-      className="h-screen w-screen relative overflow-x-hidden"
+      className="h-screen w-screen relative overflow-x-hidden bg-black"
       ref={emblaRef}
       id="accueil"
     >
@@ -58,10 +65,10 @@ function Hero() {
           L'authentique
         </h1>
         <h3 className="uppercase font-semibold text-[18px] md:text-[23px] lg:text-[30px] mb-4">
-          <span className="lowercase font-medium font-arizonia">du</span> fait
-          maison{" "}
+          <span className="lowercase font-medium font-arizonia">des</span>{" "}
+          produits frais{" "}
           <span className="lowercase font-medium font-arizonia">& des</span>{" "}
-          produits frais
+          plats faits maison
         </h3>
         <div className="flex space-y-4 md:space-x-4 flex-col md:flex-row md:items-end">
           <Button bg={true} href="#menu">

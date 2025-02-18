@@ -78,12 +78,12 @@ const Privatisation = () => {
 
   return (
     <Section id="privatisation" title="Privatisation">
-      <p className="font-arizonia text-center text-[18px] md:text-[30px] tracking-wide lg:w-1/2 mx-auto">
+      <p className="font-arizonia text-center text-[18px] md:text-[30px] tracking-wide lg:w-[70%] mx-auto mt-10">
         Vous pouvez privatiser l'établissement pour tous vos événements,
         mariages, repas d'affaires, anniversaires, ou toutes autres occasions
       </p>
       {/* Contenu de la section */}
-      <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg min-h-full">
+      <div className="mt-8 p-6 min-h-full">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Grille pour les champs (2 par ligne sur PC) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -243,7 +243,7 @@ const Privatisation = () => {
             disabled={isLoading}
             className={`w-full ${
               isLoading ? "bg-[#E4C590]/70" : "bg-[#E4C590]"
-            } text-[#1E3A8A] py-3 rounded-lg font-semibold hover:bg-[#E4C590]/90 transition-colors flex items-center justify-center`}
+            } text-black py-3 rounded-lg font-semibold hover:bg-[#E4C590]/90 transition-colors flex items-center justify-center`}
           >
             {isLoading ? (
               <ClipLoader size={20} color="#1E3A8A" /> // Spinner de react-spinners

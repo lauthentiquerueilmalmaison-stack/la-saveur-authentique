@@ -25,7 +25,7 @@ function MenuCard({
   options,
 }: MenuCardProps) {
   return (
-    <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg min-h-[500px]">
+    <div className="mt-8 p-6 min-h-[500px]">
       <Tabs defaultValue="formules">
         <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40 md:pl-0  whitespace-nowrap">
           <TabsTrigger

@@ -158,7 +158,7 @@ export type Salade = {
   _rev: string;
   nom?: string;
   prix?: number;
-  ingredients?: Ingredient[];
+  ingredients?: Array<Ingredient>;
 };
 
 export type Dessert = {
@@ -191,7 +191,24 @@ export type Entree = {
   prix?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData | Formule | Ingredient | Salade | Dessert | Plat | Entree;
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageHotspot
+  | SanityImageCrop
+  | SanityFileAsset
+  | SanityImageAsset
+  | SanityImageMetadata
+  | Geopoint
+  | Slug
+  | SanityAssetSourceData
+  | Formule
+  | Ingredient
+  | Salade
+  | Dessert
+  | Plat
+  | Entree;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/desserts/getAllDesserts.ts
 // Variable: ALL_DESSERTS_QUERY
@@ -231,14 +248,28 @@ export type ALL_INGREDIENTS_QUERYResult = Array<{
   nom?: string;
 }>;
 
+// Source: ./src/sanity/lib/options/getAllOptions.ts
+// Variable: ALL_OPTIONS_QUERY
+// Query: *[                _type == "formule"            ] | order(name desc)
+export type ALL_OPTIONS_QUERYResult = Array<{
+  _id: string;
+  _type: "formule";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  nom?: string;
+  prix?: number;
+}>;
+
 // Source: ./src/sanity/lib/salades/getAllSalades.ts
 // Variable: ALL_SALADES_QUERY
-// Query: *[                _type == "salade"            ] {              _id,              nom,              prix,              "ingredients": ingredients[]->nom}
+// Query: *[_type == "salade"] {  nom,  prix,  ingredients[]->{    nom  }}
 export type ALL_SALADES_QUERYResult = Array<{
-  _id: string;
   nom: string | null;
   prix: number | null;
-  ingredients: Array<string | null> | null;
+  ingredients: Array<{
+    nom: string | null;
+  }> | null;
 }>;
 
 // Source: ./src/sanity/lib/starters/getAllStarters.ts
@@ -254,28 +285,15 @@ export type ALL_STARTERS_QUERYResult = Array<{
   prix?: number;
 }>;
 
-// Source: ./src/sanity/lib/options/getAllOptions.ts
-// Variable: ALL_OPTIONS_QUERY
-// Query: *[                _type == "formule"            ] | order(name desc)
-export type ALL_OPTIONS_QUERYResult = Array<{
-  _id: string;
-  _type: "formule";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  nom?: string;
-  prix?: number;
-}>;
-
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n            *[\n                _type == \"dessert\"\n            ] | order(name asc)\n        ": ALL_DESSERTS_QUERYResult;
-    "\n            *[\n                _type == \"plat\"\n            ] | order(name asc)\n        ": ALL_DISHES_QUERYResult;
-    "\n            *[\n                _type == \"ingredient\"\n            ] | order(nom asc)\n        ": ALL_INGREDIENTS_QUERYResult;
-    "\n            *[\n                _type == \"salade\"\n            ] {\n              _id,\n              nom,\n              prix,\n              \"ingredients\": ingredients[]->nom}": ALL_SALADES_QUERYResult;
-    "\n            *[\n                _type == \"entree\"\n            ] | order(name asc)\n        ": ALL_STARTERS_QUERYResult;
-    "\n            *[\n                _type == \"formule\"\n            ] | order(name desc)\n        ": ALL_OPTIONS_QUERYResult;
+    '\n            *[\n                _type == "dessert"\n            ] | order(name asc)\n        ': ALL_DESSERTS_QUERYResult;
+    '\n            *[\n                _type == "plat"\n            ] | order(name asc)\n        ': ALL_DISHES_QUERYResult;
+    '\n            *[\n                _type == "ingredient"\n            ] | order(nom asc)\n        ': ALL_INGREDIENTS_QUERYResult;
+    '\n            *[\n                _type == "formule"\n            ] | order(name desc)\n        ': ALL_OPTIONS_QUERYResult;
+    '\n           *[_type == "salade"] {\n  nom,\n  prix,\n  ingredients[]->{\n    nom\n  }\n}': ALL_SALADES_QUERYResult;
+    '\n            *[\n                _type == "entree"\n            ] | order(name asc)\n        ': ALL_STARTERS_QUERYResult;
   }
 }
