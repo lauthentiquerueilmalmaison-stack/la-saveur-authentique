@@ -10,7 +10,7 @@ import Testimonials from "./Testimonials";
 import { Information } from "../../sanity.types";
 import Header from "./Header";
 
-const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 const App = async () => {
   const informations = await getAllInformations();
