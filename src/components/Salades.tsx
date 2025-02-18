@@ -1,7 +1,6 @@
 import salade from "../../public/plat4.jpg";
 import { Salade } from "../../sanity.types";
 import Image from "next/image";
-import Ingredients from "./Ingredient";
 import Ingredient from "./Ingredient";
 interface SaladeProps {
   salades: Salade[];

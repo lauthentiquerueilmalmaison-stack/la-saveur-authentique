@@ -31,7 +31,6 @@ const Category = ({ image, category, children }: CategoryProps) => {
             >
               <span className="inline-block">{cat.nom}</span>
               <span className="inline-block">{cat.prix}&euro;</span>
-              {}
             </div>
           );
         })}

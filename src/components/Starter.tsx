@@ -1,5 +1,5 @@
 import { Entree } from "../../sanity.types";
-import starter from "../../public/starter.jpg";
+import starter from "../../public/plat6.jpg";
 import Category from "./Category";
 
 interface StarterProps {

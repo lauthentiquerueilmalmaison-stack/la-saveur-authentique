@@ -26,14 +26,8 @@ function MenuCard({
 }: MenuCardProps) {
   return (
     <div className="mt-8 p-6 min-h-[500px]">
-      <Tabs defaultValue="formules">
+      <Tabs defaultValue="entrees">
         <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white pl-40 md:pl-0  whitespace-nowrap">
-          <TabsTrigger
-            value="formules"
-            className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
-          >
-            Nos formules
-          </TabsTrigger>
           <TabsTrigger
             value="entrees"
             className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-[#1E3A8A] hover:bg-[#E4C590]/20 transition-colors"
@@ -71,9 +65,6 @@ function MenuCard({
         </TabsContent>
         <TabsContent value="salades">
           <Salades salades={salades} />
-        </TabsContent>
-        <TabsContent value="formules">
-          <Options options={options} />
         </TabsContent>
       </Tabs>
     </div>
