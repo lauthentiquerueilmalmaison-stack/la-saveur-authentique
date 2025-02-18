@@ -8,6 +8,8 @@ import { getAllOptions } from "@/sanity/lib/options/getAllOptions";
 import Options from "./Options";
 import { Salade } from "../../sanity.types";
 
+
+
 async function Menu() {
   const dishs = await getAllDishs();
   const starters = await getAllStarters();
