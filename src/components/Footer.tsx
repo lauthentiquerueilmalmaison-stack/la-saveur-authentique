@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
               </div>
             </Link>
-            <p className="font-forum text-sm text-white mt-4 text-center  lg:w-52">
+            <p className="font-forum text-sm text-white mt-4 text-center w-[70%] lg:w-52">
               Découvrez la saveur authentique de nos plats faits maison avec des
               produits frais.
             </p>

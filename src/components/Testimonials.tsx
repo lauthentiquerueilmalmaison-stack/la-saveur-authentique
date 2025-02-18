@@ -36,7 +36,7 @@ const Testimonials = () => {
   return (
     <Section id="avis" title="Les avis">
       {/* Contenu des avis */}
-      <div className="mt-8 p-6  backdrop-blur-sm rounded-lg">
+      <div className="backdrop-blur-sm rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {avis.map((avis) => (
             <div key={avis.id} className="bg-white/20 p-6 rounded-lg">
