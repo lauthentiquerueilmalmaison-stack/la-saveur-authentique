@@ -103,8 +103,8 @@ const Sidebar = ({ informations }: SidebarProps) => {
       </nav>
 
       {/* Informations du restaurant */}
-      <div className="mt-12 ">
-        <h3 className="font-arizona text-xl mb-4">Informations</h3>
+      <div className="mt-12 space-y-2">
+        <h3 className="font-forum text-2xl uppercase">Informations</h3>
         <ul className="space-y-2">
           <li className="flex items-center space-x-2 font-forum text-gray-300">
             <MapPinIcon className="w-5 h-5" />
@@ -133,9 +133,9 @@ const Sidebar = ({ informations }: SidebarProps) => {
       </div>
 
       {/* Réseaux sociaux */}
-      <div className="mt-8">
-        <h3 className="font-arizona text-xl mb-4">Suivez-nous</h3>
-        <div className="flex space-x-4">
+      <div className="mt-8 space-y-2">
+        <h3 className="font-forum text-2xl uppercase">Nous suivre</h3>
+        <div className="flex space-x-4 ">
           <a
             href={facebook}
             target="_blank"

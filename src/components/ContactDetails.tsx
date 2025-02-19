@@ -46,7 +46,7 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
           <FaClock className="text-[#E4C590]" />
           <h3 className="font-arizonia text-[#E4C590]">Horaires</h3>
         </div>
-        <ul className="pl-7 space-y-1">
+        <ul className="font-forum text-lg text-white pl-10 space-y-1">
           {horairesTexte.map((horaire, index) => (
             <li key={index}>{horaire}</li>
           ))}

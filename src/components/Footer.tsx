@@ -65,7 +65,9 @@ const Footer = ({ informations }: FooterProps) => {
               <li className="font-forum text-white">{telephone}</li>
               <li className="font-forum text-white">{email}</li>
               {horairesTexte.map((horaire, index) => (
-                <li key={index}>{horaire}</li>
+                <li className="font-forum text-white" key={index}>
+                  {horaire}
+                </li>
               ))}
             </ul>
           </div>
