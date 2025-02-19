@@ -74,7 +74,7 @@ const Footer = ({ informations }: FooterProps) => {
 
           {/* Section 4 : Réseaux sociaux */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-arizona text-xl mb-4">Suivez-nous</h3>
+            <h3 className="font-arizona text-xl mb-4">Nous suivre</h3>
             <div className="flex space-x-4">
               <a
                 href={facebook}
