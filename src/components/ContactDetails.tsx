@@ -1,5 +1,6 @@
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
+import { organiserHoraires } from "../utils/horairesUtils";
 
 interface ContactDetailsProps {
   informations: ALL_INFORMATIONS_QUERYResult;
@@ -7,26 +8,9 @@ interface ContactDetailsProps {
 
 const ContactDetails = ({ informations }: ContactDetailsProps) => {
   const { adresse, telephone, email, horaires } = informations[0];
-  if (!horaires) return null;
 
-  const horairesMap = new Map(); // ✅ Pas de conflit avec MapComponent
-  const joursFermes: string[] = [];
+  const horairesTexte = organiserHoraires(horaires);
 
-  horaires.forEach(({ jour, plagesHoraires }) => {
-    if (!plagesHoraires || plagesHoraires.length === 0) {
-      joursFermes.push(jour!);
-    } else {
-      const plagesString = plagesHoraires
-        .map(({ ouverture, fermeture }) => `${ouverture} - ${fermeture}`)
-        .join(" | ");
-
-      if (horairesMap.has(plagesString)) {
-        horairesMap.get(plagesString).push(jour);
-      } else {
-        horairesMap.set(plagesString, [jour]);
-      }
-    }
-  });
   return (
     <div className="flex flex-col justify-center space-y-6">
       {/* Adresse */}
@@ -62,17 +46,10 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
           <FaClock className="text-[#E4C590]" />
           <h3 className="font-arizonia text-[#E4C590]">Horaires</h3>
         </div>
-        <ul className="font-forum text-lg text-white pl-10">
-          {[...horairesMap.entries()].map(([plages, jours], index) => (
-            <li key={index}>
-              <strong>{jours.join(" - ")}</strong> : {plages}
-            </li>
+        <ul className="pl-7 space-y-1">
+          {horairesTexte.map((horaire, index) => (
+            <li key={index}>{horaire}</li>
           ))}
-          {joursFermes.length > 0 && (
-            <li>
-              <strong>{joursFermes.join(", ")}</strong> : Fermé
-            </li>
-          )}
         </ul>
       </div>
     </div>

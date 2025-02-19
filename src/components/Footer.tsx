@@ -5,6 +5,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
 import Logo from "./Logo";
+import { organiserHoraires } from "../utils/horairesUtils";
 
 interface FooterProps {
   informations: ALL_INFORMATIONS_QUERYResult;
@@ -20,35 +21,9 @@ const navItems: { label: string; href: string }[] = [
 const Footer = ({ informations }: FooterProps) => {
   const { adresse, telephone, email, horaires, facebook, instagram } =
     informations[0];
-  // Gestion des horaires dynamiquement
-  if (!horaires) return null;
-  const horairesMap = new Map();
-  const joursFermes: string[] = [];
 
-  horaires.forEach(({ jour, plagesHoraires }) => {
-    if (!plagesHoraires || plagesHoraires.length === 0) {
-      joursFermes.push(jour!);
-    } else {
-      const plagesString = plagesHoraires
-        .map(({ ouverture, fermeture }) => `${ouverture} - ${fermeture}`)
-        .join(" | ");
+  const horairesTexte = organiserHoraires(horaires);
 
-      if (horairesMap.has(plagesString)) {
-        horairesMap.get(plagesString).push(jour);
-      } else {
-        horairesMap.set(plagesString, [jour]);
-      }
-    }
-  });
-
-  // Génération du texte des horaires
-  const horairesTexte = [
-    ...Array.from(
-      horairesMap,
-      ([plages, jours]) => `${jours.join(", ")} :  ${plages}`
-    ),
-    joursFermes.length > 0 ? `${joursFermes.join(", ")} : Fermé` : null,
-  ].filter(Boolean);
   return (
     <footer className="text-white py-8 ">
       <div className="w-full px-[5vw] 3xl:px-[10vw] mx-auto">
@@ -90,9 +65,7 @@ const Footer = ({ informations }: FooterProps) => {
               <li className="font-forum text-white">{telephone}</li>
               <li className="font-forum text-white">{email}</li>
               {horairesTexte.map((horaire, index) => (
-                <li key={index} className="font-forum text-white">
-                  {horaire}
-                </li>
+                <li key={index}>{horaire}</li>
               ))}
             </ul>
           </div>

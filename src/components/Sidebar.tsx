@@ -14,6 +14,7 @@ import {
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { useAppStore } from "@/store/appStore";
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
+import { organiserHoraires } from "../utils/horairesUtils";
 
 interface SidebarProps {
   informations: ALL_INFORMATIONS_QUERYResult;
@@ -37,33 +38,7 @@ const Sidebar = ({ informations }: SidebarProps) => {
 
   const { activeTab } = useAppStore(); // Récupérer l'onglet actif du store
 
-  const horairesMap = new Map();
-  const joursFermes: string[] = [];
-
-  horaires?.forEach(({ jour, plagesHoraires }) => {
-    if (!plagesHoraires || plagesHoraires.length === 0) {
-      joursFermes.push(jour!);
-    } else {
-      const plagesString = plagesHoraires
-        .map(({ ouverture, fermeture }) => `${ouverture} - ${fermeture}`)
-        .join(" | ");
-
-      if (horairesMap.has(plagesString)) {
-        horairesMap.get(plagesString).push(jour);
-      } else {
-        horairesMap.set(plagesString, [jour]);
-      }
-    }
-  });
-
-  // Génération du texte des horaires
-  const horairesTexte = [
-    ...Array.from(
-      horairesMap,
-      ([plages, jours]) => `${jours.join(", ")} : ${plages}`
-    ),
-    joursFermes.length > 0 ? `${joursFermes.join(", ")} : Fermé` : null,
-  ].filter(Boolean);
+  const horairesTexte = organiserHoraires(horaires);
 
   // Animation d'ouverture et de fermeture
   useEffect(() => {
