@@ -13,9 +13,13 @@ import Button from "./Button";
 import { useRef } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
+interface HeroProps {
+  telephone: string;
+}
+
 // Composant réutilisable pour les images du carrousel
 const CarouselImage = ({ src, alt }: { src: StaticImport; alt: string }) => (
-  <div className="relative flex-none w-full h-full  opacity-25">
+  <div className="relative flex-none w-full h-full  opacity-40">
     <Image
       src={src}
       fill
@@ -26,8 +30,7 @@ const CarouselImage = ({ src, alt }: { src: StaticImport; alt: string }) => (
   </div>
 );
 
-function Hero() {
-  const phoneNumber = "+33956739572";
+function Hero({ telephone }: HeroProps) {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 3000 }),
   ]);
@@ -45,7 +48,7 @@ function Hero() {
 
   return (
     <section
-      className="h-screen w-screen relative overflow-x-hidden bg-black"
+      className="h-screen  w-full relative overflow-x-hidden bg-black"
       ref={emblaRef}
       id="accueil"
     >
@@ -74,7 +77,7 @@ function Hero() {
           <Button bg={true} href="#menu">
             Voir le menu
           </Button>
-          <a href={`tel:${phoneNumber}`} aria-label="Appeler pour réserver">
+          <a href={`tel:${telephone}`} aria-label="Appeler pour réserver">
             <Button>Appelez pour réserver</Button>
           </a>
         </div>
