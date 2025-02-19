@@ -8,7 +8,6 @@ import Privatisation from "./Privatisation";
 import Testimonials from "./Testimonials";
 import Header from "./Header";
 
-export const dynamic = "force-dynamic";
 
 const App = async () => {
   const informations = await getAllInformations();

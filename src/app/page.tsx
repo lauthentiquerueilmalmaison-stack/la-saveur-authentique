@@ -1,6 +1,6 @@
 import App from "@/components/App";
 
-// export const revalidate = 5;
+export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <>
