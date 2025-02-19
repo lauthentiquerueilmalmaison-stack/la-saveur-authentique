@@ -19,7 +19,7 @@ function MenuCard({ dishs, starters, desserts, salades }: MenuCardProps) {
   return (
     <div className="mt-8 min-h-[500px]">
       <Tabs defaultValue="entrees">
-        <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white  whitespace-nowrap ">
+        <TabsList className="w-full border-t-[1px] border-b-[1px] border-[#E4C590] text-white  whitespace-nowrap px-[50vw] md:px-0">
           <TabsTrigger
             value="entrees"
             className="px-4 py-2 data-[state=active]:bg-[#E4C590] data-[state=active]:text-black hover:bg-[#E4C590]/20 transition-colors"

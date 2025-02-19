@@ -17,7 +17,9 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
       <div className="space-y-1 text-[18px] md:text-[25px]">
         <div className="flex items-center space-x-4">
           <FaMapMarkerAlt className="text-[#E4C590]" />
-          <h3 className="font-arizonia text-[#E4C590]">Adresse</h3>
+          <h3 className="font-arizonia text-[#E4C590] text-[20px] md:text-[25px] tracking-wider">
+            Adresse
+          </h3>
         </div>
         <p className="font-forum text-lg text-white pl-10">{adresse}</p>
       </div>
@@ -26,7 +28,9 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
       <div className="space-y-1 text-[18px] md:text-[25px]">
         <div className="flex items-center space-x-4">
           <FaPhone className="text-[#E4C590]" />
-          <h3 className="font-arizonia text-[#E4C590]">Téléphone</h3>
+          <h3 className="font-arizonia text-[#E4C590] text-[20px] md:text-[25px] tracking-wider">
+            Téléphone
+          </h3>
         </div>
         <p className="font-forum text-lg text-white pl-10">{telephone}</p>
       </div>
@@ -35,7 +39,9 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
       <div className="space-y-1 text-[18px] md:text-[25px]">
         <div className="flex items-center space-x-4">
           <FaEnvelope className="text-[#E4C590]" />
-          <h3 className="font-arizonia text-[#E4C590]">Email</h3>
+          <h3 className="font-arizonia text-[#E4C590] text-[20px] md:text-[25px] tracking-wider">
+            Email
+          </h3>
         </div>
         <p className="font-forum text-lg text-white pl-10">{email}</p>
       </div>
@@ -44,7 +50,9 @@ const ContactDetails = ({ informations }: ContactDetailsProps) => {
       <div className="space-y-1 text-[18px] md:text-[25px]">
         <div className="flex items-center space-x-4">
           <FaClock className="text-[#E4C590]" />
-          <h3 className="font-arizonia text-[#E4C590]">Horaires</h3>
+          <h3 className="font-arizonia text-[#E4C590] text-[20px] md:text-[25px] tracking-wider">
+            Horaires
+          </h3>
         </div>
         <ul className="font-forum text-lg text-white pl-10 space-y-1">
           {horairesTexte.map((horaire, index) => (

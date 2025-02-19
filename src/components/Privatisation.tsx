@@ -78,9 +78,12 @@ const Privatisation = () => {
 
   return (
     <Section id="privatisation" title="Privatisation">
-      <p className="font-arizonia text-center text-[18px] md:text-[30px] tracking-wide lg:w-[70%] mx-auto my-5">
-        Vous pouvez privatiser l'établissement pour tous vos événements,
-        mariages, repas d'affaires, anniversaires, ou toutes autres occasions
+      <p className="font-arizonia text-center text-[20px] md:text-[30px] tracking-wide lg:w-[70%] mx-auto my-5">
+        <span className="absolute inset-0 bg-black/50 rounded-lg"></span>
+        <span className="relative">
+          Vous pouvez privatiser l'établissement pour tous vos événements,
+          mariages, repas d'affaires, anniversaires, ou toutes autres occasions.
+        </span>
       </p>
       {/* Contenu de la section */}
       <div className="min-h-full">
