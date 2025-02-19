@@ -1,4 +1,3 @@
-import React from "react";
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 

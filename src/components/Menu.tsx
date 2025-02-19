@@ -8,7 +8,7 @@ import { getAllOptions } from "@/sanity/lib/options/getAllOptions";
 import Options from "./Options";
 import { Salade } from "../../sanity.types";
 
-
+export const dynamic = "force-dynamic";
 
 async function Menu() {
   const dishs = await getAllDishs();

@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
+
 import dynamic from "next/dynamic";
 import Section from "./Section";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
 import ContactDetails from "./ContactDetails";
 

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import logo from "../../public/logo-2.svg";
 import spoon from "../../public/spoon.svg";
 import fork from "../../public/fork.svg";

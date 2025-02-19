@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "./Section";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 

@@ -5,9 +5,7 @@ import Hero from "./Hero";
 import ImageGallery from "./ImageGallery";
 import Menu from "./Menu";
 import Privatisation from "./Privatisation";
-import SocialMedia from "./SocialMedia";
 import Testimonials from "./Testimonials";
-import { Information } from "../../sanity.types";
 import Header from "./Header";
 
 export const dynamic = "force-dynamic";

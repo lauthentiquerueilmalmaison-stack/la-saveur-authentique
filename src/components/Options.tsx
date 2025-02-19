@@ -1,4 +1,3 @@
-import React from "react";
 import { Formule } from "../../sanity.types";
 import Option from "./Option";
 import OptionCard from "./OptionCard";

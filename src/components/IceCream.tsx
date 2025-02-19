@@ -1,4 +1,3 @@
-import React from "react";
 import { Glace } from "../../sanity.types";
 import Category from "./Category";
 import dessert from "../../public/plat8.jpg";
