@@ -18,6 +18,8 @@ const images = [
   "/plat10.jpg",
   "/plat11.jpg",
   "/plat12.jpg",
+  "/plat13.jpg",
+  "/plat14.jpg",
 ];
 
 const ImageGallery = () => {
