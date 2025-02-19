@@ -39,10 +39,7 @@ const Map = () => {
       style={{ height: "100%", width: "100%" }}
       ref={mapRef}
     >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={coordinates} icon={redIcon} ref={markerRef}>
         <Popup>41 Boulevard National, 92500 Rueil-Malmaison</Popup>
       </Marker>
