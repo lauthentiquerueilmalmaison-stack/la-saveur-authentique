@@ -18,6 +18,7 @@ interface HeaderProps {
 const links = [
   { id: "#accueil", title: "accueil" },
   { id: "#menu", title: "menu" },
+  { id: "#galerie", title: "galerie" },
   { id: "#avis", title: "avis" },
   { id: "#contact", title: "contact" },
   { id: "#privatisation", title: "privatisation" },

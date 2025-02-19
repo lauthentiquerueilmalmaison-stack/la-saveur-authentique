@@ -11,7 +11,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { useAppStore } from "@/store/appStore";
 import { ALL_INFORMATIONS_QUERYResult } from "../../sanity.types";
 
@@ -22,6 +22,7 @@ interface SidebarProps {
 const links = [
   { id: "#accueil", title: "accueil" },
   { id: "#menu", title: "menu" },
+  { id: "#galerie", title: "galerie" },
   { id: "#avis", title: "avis" },
   { id: "#contact", title: "contact" },
   { id: "#privatisation", title: "privatisation" },
