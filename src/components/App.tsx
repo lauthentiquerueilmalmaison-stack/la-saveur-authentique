@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import ImageGallery from "./ImageGallery";
 import Menu from "./Menu";
 import Privatisation from "./Privatisation";
-import Testimonials from "./Reviews";
+import Testimonials from "./Testimonials";
 import Header from "./Header";
 
 const App = async () => {
