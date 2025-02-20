@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import ImageGallery from "./ImageGallery";
 import Menu from "./Menu";
 import Privatisation from "./Privatisation";
-import GoogleReviews from "./GoogleReviews";
+import Testimonials from "./Testimonials";
 import Header from "./Header";
 
 const App = async () => {
@@ -18,7 +18,7 @@ const App = async () => {
       <div className="w-full h-full bg-black bg-[radial-gradient(circle_farthest-side_at_center,_hsl(102,37%,75%)_-80%,_hsl(0,0%,0%)_150%)]">
         <Menu />
         <ImageGallery />
-        <GoogleReviews />
+        <Testimonials />
         {/* <SocialMedia /> */}
         <Contact informations={informations} />
         <Privatisation />
