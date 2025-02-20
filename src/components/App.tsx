@@ -5,20 +5,20 @@ import Hero from "./Hero";
 import ImageGallery from "./ImageGallery";
 import Menu from "./Menu";
 import Privatisation from "./Privatisation";
-import Testimonials from "./Testimonials";
+import GoogleReviews from "./GoogleReviews";
 import Header from "./Header";
-
 
 const App = async () => {
   const informations = await getAllInformations();
+
   return (
     <>
       <Header informations={informations} />
-      <Hero telephone={informations[0].telephone!}/>
+      <Hero telephone={informations[0].telephone!} />
       <div className="w-full h-full bg-black bg-[radial-gradient(circle_farthest-side_at_center,_hsl(102,37%,75%)_-80%,_hsl(0,0%,0%)_150%)]">
         <Menu />
         <ImageGallery />
-        <Testimonials />
+        <GoogleReviews />
         {/* <SocialMedia /> */}
         <Contact informations={informations} />
         <Privatisation />
