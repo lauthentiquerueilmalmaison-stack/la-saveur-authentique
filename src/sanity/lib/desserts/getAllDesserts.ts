@@ -1,5 +1,6 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
+import { ALL_DESSERTS_QUERYResult } from "../../../../sanity.types";
 
 export const getAllDesserts = async () => {
   const ALL_DESSERTS_QUERY = defineQuery(`
@@ -9,8 +10,9 @@ export const getAllDesserts = async () => {
         `);
 
   try {
-    const desserts = await sanityFetch({ query: ALL_DESSERTS_QUERY });
-    return desserts.data || [];
+    const desserts =
+      await sanityFetch<ALL_DESSERTS_QUERYResult>(ALL_DESSERTS_QUERY);
+    return desserts;
   } catch (error) {
     console.error("Error fetching all desserts", error);
     return [];

@@ -1,5 +1,6 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
+import { ALL_STARTERS_QUERYResult } from "../../../../sanity.types";
 
 export const getAllStarters = async () => {
   const ALL_STARTERS_QUERY = defineQuery(`
@@ -9,8 +10,9 @@ export const getAllStarters = async () => {
         `);
 
   try {
-    const starters = await sanityFetch({ query: ALL_STARTERS_QUERY });
-    return starters.data || [];
+    const starters =
+      await sanityFetch<ALL_STARTERS_QUERYResult>(ALL_STARTERS_QUERY);
+    return starters;
   } catch (error) {
     console.error("Error fetching all starters", error);
     return [];

@@ -1,6 +1,9 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
-import { Ingredient } from "../../../../sanity.types";
+import {
+  ALL_INGREDIENTS_QUERYResult,
+  Ingredient,
+} from "../../../../sanity.types";
 
 export const getAllIngredients = async () => {
   const ALL_INGREDIENTS_QUERY = defineQuery(`
@@ -10,9 +13,11 @@ export const getAllIngredients = async () => {
         `);
 
   try {
-    const ingredients = await sanityFetch({ query: ALL_INGREDIENTS_QUERY });
+    const ingredients = await sanityFetch<ALL_INGREDIENTS_QUERYResult[]>(
+      ALL_INGREDIENTS_QUERY,
+    );
 
-    return ingredients.data;
+    return ingredients;
   } catch (error) {
     console.error("Error fetching all ingredients", error);
     return [];

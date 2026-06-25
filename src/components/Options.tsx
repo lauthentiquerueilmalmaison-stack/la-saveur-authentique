@@ -1,9 +1,9 @@
-import { Formule } from "../../sanity.types";
+import { ALL_OPTIONS_QUERYResult } from "../../sanity.types";
 import Option from "./Option";
 import OptionCard from "./OptionCard";
 
 interface OptionsProps {
-  options: Formule[];
+  options: ALL_OPTIONS_QUERYResult;
 }
 const Options = ({ options }: OptionsProps) => {
   return (
@@ -18,7 +18,7 @@ const Options = ({ options }: OptionsProps) => {
         </span>
       </div>
       <div>
-        {options.map((option, index) => {
+        {(options as ALL_OPTIONS_QUERYResult).map((option, index) => {
           return <Option option={option} index={index} />;
         })}
       </div>

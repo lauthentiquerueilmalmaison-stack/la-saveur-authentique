@@ -1,5 +1,6 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
+import { ALL_SALADES_QUERYResult } from "../../../../sanity.types";
 
 export const getAllSalades = async () => {
   const ALL_SALADES_QUERY = defineQuery(`
@@ -18,8 +19,9 @@ export const getAllSalades = async () => {
 }`);
 
   try {
-    const salades = await sanityFetch({ query: ALL_SALADES_QUERY });
-    return salades.data || [];
+    const salades =
+      await sanityFetch<ALL_SALADES_QUERYResult>(ALL_SALADES_QUERY);
+    return salades;
   } catch (error) {
     console.error("Error fetching all salades", error);
     return [];

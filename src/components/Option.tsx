@@ -1,7 +1,15 @@
-import { Formule } from "../../sanity.types";
+import { ALL_OPTIONS_QUERYResult, Formule } from "../../sanity.types";
 
 interface OptionProps {
-  option: Formule;
+  option: {
+    _id: string;
+    _type: "formule";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    nom?: string;
+    prix?: number;
+  };
   index: number;
 }
 
