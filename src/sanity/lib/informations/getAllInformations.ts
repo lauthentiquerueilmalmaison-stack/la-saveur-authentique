@@ -8,7 +8,7 @@ export const getAllInformations = async () => {
   `);
 
   try {
-    const informations = await sanityFetch<ALL_INFORMATIONS_QUERYResult[]>(
+    const informations = await sanityFetch<ALL_INFORMATIONS_QUERYResult>(
       ALL_INFORMATIONS_QUERY,
     );
 

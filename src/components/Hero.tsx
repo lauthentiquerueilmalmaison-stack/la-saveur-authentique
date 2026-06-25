@@ -14,7 +14,7 @@ import { useRef } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface HeroProps {
-  telephone: string;
+  telephone: string | undefined;
 }
 
 // Composant réutilisable pour les images du carrousel

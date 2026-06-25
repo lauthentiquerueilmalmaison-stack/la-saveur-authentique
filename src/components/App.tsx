@@ -13,16 +13,16 @@ const App = async () => {
 
   return (
     <>
-      <Header informations={informations[0]} />
-      <Hero telephone={(informations[0] as any).telephone}  />
+      <Header informations={informations} />
+      <Hero telephone={informations[0].telephone}  />
       <div className="w-full h-full bg-black bg-[radial-gradient(circle_farthest-side_at_center,_hsl(102,37%,75%)_-80%,_hsl(0,0%,0%)_150%)]">
         <Menu />
         <ImageGallery />
         <Testimonials />
         {/* <SocialMedia /> */}
-        <Contact informations={informations[0]} />
+        <Contact informations={informations} />
         <Privatisation />
-        <Footer informations={informations[0]} />
+        <Footer informations={informations} />
       </div>
     </>
   );
